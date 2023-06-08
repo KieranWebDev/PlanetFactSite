@@ -10,7 +10,6 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route index element={<Navigate to="/earth" />} />
-
           <Route path="/:id" element={<Planets />} />
         </Routes>
       </BrowserRouter>
