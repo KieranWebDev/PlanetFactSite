@@ -1,7 +1,7 @@
 import { createServer } from 'miragejs';
 import data from './Data/data.json';
 
-console.log(data);
+// console.log(data);
 
 // const data = [
 //   {
