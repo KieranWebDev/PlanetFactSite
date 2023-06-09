@@ -39,13 +39,20 @@ export default function Planets() {
       .then((response) => response.json())
       .then((data) => {
         setPlanetInfo(data);
-        return data;
-      })
-      .then((data) => {
         setPlanetImages(getPicsForDisplay(data));
-        changeDisplayedInfo('overview', 'planetFull');
+        // console.log(changeDisplayedInfo('overview', 'planetFull'));
+        // changeDisplayedInfo('overview', 'planetFull');
+        // return data;
       });
+    // .then((data) => {
+    // });
   }, [params.id]);
+
+  useEffect(() => {
+    changeDisplayedInfo('overview', 'planetFull');
+    // if (planetInfo) {
+    // }
+  }, [planetInfo]);
 
   function getPicsForDisplay(data) {
     const planetImages = {
@@ -103,11 +110,14 @@ export default function Planets() {
   }
 
   console.log(planetInfo);
-  console.log(planetImages);
+  // console.log(planetImages);
 
   function changeDisplayedInfo(info, pic) {
+    let textToDisplay = '';
+    let picToDisplay = '';
+
     if (planetInfo && planetInfo[info]) {
-      const textToDisplay = (
+      textToDisplay = (
         <>
           <p> - {planetInfo[info].content}</p>
           <p>
@@ -118,13 +128,40 @@ export default function Planets() {
           </p>
         </>
       );
-
-      const picToDisplay = (
-        <img src={planetImages[pic]} alt={planetInfo.name} />
-      );
-
-      setDisplayedInfo({ text: textToDisplay, pic: picToDisplay });
+      if (info === 'geology') {
+        picToDisplay = (
+          <>
+            <img src={planetImages[pic]} alt={planetInfo.name} />
+            <img src={planetImages.planetFull} alt={planetInfo.name} />
+          </>
+        );
+      } else {
+        picToDisplay = <img src={planetImages[pic]} alt={planetInfo.name} />;
+      }
     }
+    // else {
+    //   textToDisplay = (
+    //     <>
+    //       <p>overview - {planetInfo.overview.content}</p>
+    //       <p>
+    //         Source -{' '}
+    //         <a
+    //           target="_blank"
+    //           rel="noreferrer"
+    //           href={planetInfo.overview.source}
+    //         >
+    //           Wikipedia
+    //         </a>
+    //       </p>
+    //     </>
+    //   );
+
+    //   picToDisplay = (
+    //     <img src={planetImages.planetFull} alt={planetInfo.name} />
+    //   );
+    // }
+
+    setDisplayedInfo({ text: textToDisplay, pic: picToDisplay });
   }
 
   //   const picString = `..${planetInfo.images.planet.substring(1)}`;
