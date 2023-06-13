@@ -1,20 +1,26 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+// import '../index.css';
 
 // styles
 
+const Header = styled.div`
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  background-color: var(--background-color);
+`;
 const NavHeading = styled.h2`
   font-size: 1.5rem;
+  letter-spacing: var(--small-line-spacing);
+  font-weight: 400;
 `;
 
-const Header = styled.div`
-  border-bottom: 1px solid black;
-`;
 const HeaderContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 1em;
+  max-width: 1600px;
+  margin: 0 auto;
 `;
 const Ul = styled.ul`
   height: 100%;
@@ -30,21 +36,30 @@ const Li = styled.li`
   border-top: 5px solid transparent;
   min-width: 70px;
   text-align: center;
+  opacity: 0.75;
   &:hover {
     border-top: 5px solid red;
-    border-top-color: ${(props) => props.linkColor};
+    border-top-color: ${(props) => `var(${props.linkColor})`};
+    opacity: 1;
   }
 `;
 const StyledLink = styled(Link)`
   padding: 2em 0;
-  padding-top: padding: calc(2em - 5px);
+  ${'' /* padding-top: calc(2em - 5px); */}
   text-decoration: none;
   display: block;
   width: 100%;
   height: 100%;
+  color: inherit;
+  font-family: var(--text-font);
+  font-size: 14px;
+  letter-spacing: 1px;
+  line-height: var(--standard-line-height);
+  font-weight: 500;
 
   &:hover {
-    color: orange;
+    ${'' /* color: orange; */}
+    opacity: 1;
   }
 `;
 export default function Navbar() {
@@ -54,29 +69,29 @@ export default function Navbar() {
         <NavHeading>THE PLANETS</NavHeading>
         <nav>
           <Ul>
-            <Li linkColor={'blue'}>
-              <StyledLink to="/mercury">Mercury</StyledLink>
+            <Li linkColor={'--mercury'}>
+              <StyledLink to="/mercury">MERCURY</StyledLink>
             </Li>
-            <Li linkColor={'red'}>
-              <StyledLink to="/venus">Venus</StyledLink>
+            <Li linkColor={'--venus'}>
+              <StyledLink to="/venus">VENUS</StyledLink>
             </Li>
-            <Li linkColor={'green'}>
-              <StyledLink to="/earth">Earth</StyledLink>
+            <Li linkColor={'--earth'}>
+              <StyledLink to="/earth">EARTH</StyledLink>
             </Li>
-            <Li linkColor={'yellow'}>
-              <StyledLink to="/mars">Mars</StyledLink>
+            <Li linkColor={'--mars'}>
+              <StyledLink to="/mars">MARS</StyledLink>
             </Li>
-            <Li linkColor={'purple'}>
-              <StyledLink to="/jupiter">Jupiter</StyledLink>
+            <Li linkColor={'--jupiter'}>
+              <StyledLink to="/jupiter">JUPITER</StyledLink>
             </Li>
-            <Li linkColor={'black'}>
-              <StyledLink to="/saturn">Saturn</StyledLink>
+            <Li linkColor={'--saturn'}>
+              <StyledLink to="/saturn">SATURN</StyledLink>
             </Li>
-            <Li linkColor={'orange'}>
-              <StyledLink to="/uranus">Uranus</StyledLink>
+            <Li linkColor={'--uranus'}>
+              <StyledLink to="/uranus">URANUS</StyledLink>
             </Li>
-            <Li linkColor={'pink'}>
-              <StyledLink to="/neptune">Neptune</StyledLink>
+            <Li linkColor={'--neptune'}>
+              <StyledLink to="/neptune">NEPTUNE</StyledLink>
             </Li>
           </Ul>
         </nav>

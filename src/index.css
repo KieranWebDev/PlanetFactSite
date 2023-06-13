@@ -1,10 +1,10 @@
 :root {
   /* fonts */
-  --text-font: 'Spartan', sans-serif;
+  --text-font: 'League Spartan', sans-serif;
   --title-font: 'Antonio', sans-serif;
   --font-size: 16px;
   /* color system */
-  --font-color: #fff;
+  --font-color: #ffffff;
   --secondary-font-color: #838391;
   --background-color: #070724;
   --button-hover: #38384f;
