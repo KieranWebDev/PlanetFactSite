@@ -7,7 +7,6 @@ import PageLayout from './Components/PageLayout';
 function App() {
   return (
     <>
-      <h1>blank project</h1>
       <BrowserRouter>
         <Routes>
           <Route element={<PageLayout />}>
