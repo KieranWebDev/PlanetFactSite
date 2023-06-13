@@ -3,6 +3,10 @@ import styled from 'styled-components';
 
 // styles
 
+const NavHeading = styled.h2`
+  font-size: 1.5rem;
+`;
+
 const Header = styled.div`
   border-bottom: 1px solid black;
 `;
@@ -47,7 +51,7 @@ export default function Navbar() {
   return (
     <Header>
       <HeaderContainer>
-        <h2>THE PLANETS</h2>
+        <NavHeading>THE PLANETS</NavHeading>
         <nav>
           <Ul>
             <Li linkColor={'blue'}>
