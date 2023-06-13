@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import HamburgerIcon from '../assets/icon-hamburger.svg';
+
 // import '../index.css';
 
 // styles
@@ -13,12 +15,18 @@ const Header = styled.div`
 `;
 const HeaderContainer = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
-  padding: 0 1em;
-  max-width: 1600px;
-  margin: 0 auto;
+  padding: 1em;
+  @media (min-width: 550px) {
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 0 1em;
+    max-width: 1600px;
+    margin: 0 auto;
+  }
+
   @media (min-width: 850px) {
     padding: 0 2em;
     justify-content: space-between;
@@ -26,7 +34,7 @@ const HeaderContainer = styled.div`
 `;
 const NavHeading = styled.h2`
   font-weight: 400;
-  @media (min-width: 500px) {
+  @media (min-width: 550px) {
     flex-basis: 100%;
     text-align: center;
     padding: 1.5em 0 0.5em 0;
@@ -41,6 +49,7 @@ const NavHeading = styled.h2`
 `;
 
 const Ul = styled.ul`
+  display: none;
   @media (min-width: 550px) {
     height: 100%;
     display: flex;
@@ -55,7 +64,7 @@ const Li = styled.li`
     height: 100%;
     box-sizing: border-box;
     border-top: 5px solid transparent;
-    min-width: 70px;
+
     text-align: center;
     opacity: 0.75;
 
@@ -66,6 +75,9 @@ const Li = styled.li`
       border-top-color: ${(props) => `var(${props.linkcolor})`};
       opacity: 1;
     }
+  }
+  @media (min-width: 800px) {
+    min-width: 70px;
   }
 `;
 
@@ -85,11 +97,19 @@ const StyledLink = styled(Link)`
     font-weight: 500;
 
     &:hover {
-      ${'' /* color: orange; */}
       opacity: 1;
     }
   }
 `;
+
+const HamburgerButton = styled.button`
+  background: inherit;
+  border: none;
+  @media (min-width: 550px) {
+    display: none;
+  }
+`;
+
 export default function Navbar() {
   return (
     <Header>
@@ -122,6 +142,10 @@ export default function Navbar() {
               <StyledLink to="/neptune">NEPTUNE</StyledLink>
             </Li>
           </Ul>
+
+          <HamburgerButton>
+            <img src={HamburgerIcon} alt="" />
+          </HamburgerButton>
         </nav>
       </HeaderContainer>
     </Header>
