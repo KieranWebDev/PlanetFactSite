@@ -1,13 +1,14 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
+// STYLES
 const UlDesktop = styled.ul`
   display: none;
 
   @media (min-width: 550px) {
     height: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     list-style-type: none;
     gap: 1em;
   }
@@ -15,10 +16,7 @@ const UlDesktop = styled.ul`
 
 const LiDesktop = styled.li`
   @media (min-width: 550px) {
-    height: 100%;
-    box-sizing: border-box;
     border-top: 5px solid transparent;
-
     text-align: center;
     opacity: 0.75;
 
@@ -38,11 +36,8 @@ const LiDesktop = styled.li`
 const StyledLink = styled(Link)`
   @media (min-width: 550px) {
     padding: 2em 0;
-    ${'' /* padding-top: calc(2em - 5px); */}
     text-decoration: none;
     display: block;
-    width: 100%;
-    height: 100%;
     color: inherit;
     font-family: var(--text-font);
     font-size: 14px;
@@ -56,7 +51,7 @@ const StyledLink = styled(Link)`
   }
 `;
 
-export default function DesktopMenu() {
+export default function DesktopMenuComponent() {
   return (
     <UlDesktop>
       <LiDesktop linkcolor={'--mercury'}>
