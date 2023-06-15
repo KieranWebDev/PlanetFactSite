@@ -12,15 +12,20 @@ import DesktopMenu from './DesktopMenu';
 const Header = styled.div`
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   background-color: var(--background-color);
-
-  @media (min-width: 850px) {
-  }
+  position: ${(props) => (props.mobilemenu === 'true' ? 'fixed' : 'initial')};
+  width: 100%;
+  top: 0;
+  left: 0;
 `;
 const HeaderContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1em;
+
+  width: 100%;
+  top: 0;
+  left: 0;
   @media (min-width: 550px) {
     justify-content: center;
     align-items: center;
@@ -123,7 +128,7 @@ export default function Navbar() {
 
   return (
     <>
-      <Header>
+      <Header mobilemenu={isMobileMenu.toString()}>
         <HeaderContainer>
           <NavHeading>THE PLANETS</NavHeading>
           <nav>
@@ -159,8 +164,8 @@ export default function Navbar() {
             </HamburgerButton>
           </nav>
         </HeaderContainer>
-        {isMobileMenu && <MobileMenu />}
       </Header>
+      {isMobileMenu && <MobileMenu />}
     </>
   );
 }
