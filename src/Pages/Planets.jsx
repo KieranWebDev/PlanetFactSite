@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import PlanetsPageContainer from '../Components/PlanetPage/PlanetsPageContainer';
+import TitleAndInfoContainer from '../Components/PlanetPage/TitleAndInfoContainer';
 
 import styled from 'styled-components';
 
@@ -29,7 +30,6 @@ import UranusGeology from '../assets/geology-uranus.png';
 import NeptunePlanet from '../assets/planet-neptune.svg';
 import NeptuneInternal from '../assets/planet-neptune-internal.svg';
 import NeptuneGeology from '../assets/geology-neptune.png';
-import TitleAndInfoContainer from '../Components/PlanetPage/TitleAndInfoContainer';
 
 const IMG = styled.img`
   height: 100px;
@@ -123,55 +123,69 @@ export default function Planets() {
 
   function changeDisplayedInfo(info, pic) {
     let textToDisplay = '';
+
+    let planetDecriptionText = '';
+    let planetWikiLink = '';
     let picToDisplay = '';
+    let additionalSurfacePic = '';
 
     if (planetInfo && planetInfo[info]) {
-      textToDisplay = (
-        <>
-          <p> - {planetInfo[info].content}</p>
-          <p>
-            Source -
-            <a target="_blank" rel="noreferrer" href={planetInfo[info].source}>
-              Wikipedia
-            </a>
-          </p>
-        </>
-      );
-      if (info === 'geology') {
-        picToDisplay = (
-          <>
-            <img src={planetImages[pic]} alt={planetInfo.name} />
-            <img src={planetImages.planetFull} alt={planetInfo.name} />
-          </>
-        );
-      } else {
-        picToDisplay = <IMG src={planetImages[pic]} alt={planetInfo.name} />;
-      }
+      planetDecriptionText = planetInfo[info].content;
+      planetWikiLink = textToDisplay = planetInfo[info].source;
     }
-    // else {
-    //   textToDisplay = (
-    //     <>
-    //       <p>overview - {planetInfo.overview.content}</p>
-    //       <p>
-    //         Source -{' '}
-    //         <a
-    //           target="_blank"
-    //           rel="noreferrer"
-    //           href={planetInfo.overview.source}
-    //         >
-    //           Wikipedia
-    //         </a>
-    //       </p>
-    //     </>
-    //   );
+    // <>
+    //   <p> - {planetInfo[info].content}</p>
+    //   <p>
+    //     Source -
+    //     <a target="_blank" rel="noreferrer" href={planetInfo[info].source}>
+    //       Wikipedia
+    //     </a>
+    //   </p>
+    // </>;
+    if (info === 'geology') {
+      picToDisplay = planetImages.planetFull;
+      additionalSurfacePic = planetImages[pic];
 
-    //   picToDisplay = (
-    //     <img src={planetImages.planetFull} alt={planetInfo.name} />
-    //   );
-    // }
+      // (
+      //   <>
+      //     <img src={planetImages[pic]} alt={planetInfo.name} />
+      //     <img src={planetImages.planetFull} alt={planetInfo.name} />
+      //   </>
+      // );
+    } else {
+      picToDisplay = planetImages[pic];
 
-    setDisplayedInfo({ text: textToDisplay, pic: picToDisplay });
+      // <IMG src={planetImages[pic]} alt={planetInfo.name} />;
+    }
+    setDisplayedInfo({
+      planetDecriptionText: planetDecriptionText,
+      planetWikiLink: planetWikiLink,
+      picToDisplay: picToDisplay,
+      additionalSurfacePic: additionalSurfacePic,
+    });
+    //  text: textToDisplay, pic: picToDisplay
   }
+  // else {
+  //   textToDisplay = (
+  //     <>
+  //       <p>overview - {planetInfo.overview.content}</p>
+  //       <p>
+  //         Source -{' '}
+  //         <a
+  //           target="_blank"
+  //           rel="noreferrer"
+  //           href={planetInfo.overview.source}
+  //         >
+  //           Wikipedia
+  //         </a>
+  //       </p>
+  //     </>
+  //   );
+
+  //   picToDisplay = (
+  //     <img src={planetImages.planetFull} alt={planetInfo.name} />
+  //   );
+  // }
 
   //   const picString = `..${planetInfo.images.planet.substring(1)}`;
   //   console.log(picString);
@@ -181,10 +195,10 @@ export default function Planets() {
         <PlanetsPageContainer>
           <TitleAndInfoContainer
             planetName={planetInfo.name}
-            displayedInfoText={displayedInfo.text}
+            displayedInfo={displayedInfo}
           />
           <div>
-            <h1>{planetInfo.name}</h1>
+            {/* <h1>{planetInfo.name}</h1> */}
             {/* <p>overview - {planetInfo.overview.content}</p>
           <p>
             Source -{' '}
@@ -196,7 +210,7 @@ export default function Planets() {
               Wikipedia
             </a>
           </p> */}
-            {displayedInfo.text}
+            {/* {displayedInfo.text} */}
 
             <div className="buttons-container">
               <button
