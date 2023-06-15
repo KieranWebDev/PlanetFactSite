@@ -11,5 +11,7 @@ module.exports = {
   plugins: ['react-refresh'],
   rules: {
     'react-refresh/only-export-components': 'warn',
+    // Disable rules related to type checking
+    'react/prop-types': 'off',
   },
-}
+};
