@@ -165,7 +165,7 @@ export default function Navbar() {
           </nav>
         </HeaderContainer>
       </Header>
-      {isMobileMenu && <MobileMenu />}
+      {isMobileMenu && <MobileMenu toggleMobileMenu={toggleMobileMenu} />}
     </>
   );
 }
