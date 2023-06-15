@@ -29,6 +29,7 @@ import UranusGeology from '../assets/geology-uranus.png';
 import NeptunePlanet from '../assets/planet-neptune.svg';
 import NeptuneInternal from '../assets/planet-neptune-internal.svg';
 import NeptuneGeology from '../assets/geology-neptune.png';
+import TitleAndInfoContainer from '../Components/PlanetPage/TitleAndInfoContainer';
 
 const IMG = styled.img`
   height: 100px;
@@ -178,6 +179,10 @@ export default function Planets() {
     <>
       {planetInfo ? (
         <PlanetsPageContainer>
+          <TitleAndInfoContainer
+            planetName={planetInfo.name}
+            displayedInfoText={displayedInfo.text}
+          />
           <div>
             <h1>{planetInfo.name}</h1>
             {/* <p>overview - {planetInfo.overview.content}</p>
