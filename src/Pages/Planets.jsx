@@ -2,6 +2,9 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import PlanetsPageContainer from '../Components/PlanetPage/PlanetsPageContainer';
 import TitleAndInfoContainer from '../Components/PlanetPage/TitleAndInfoContainer';
+import InfoButtonsContainer from '../Components/PlanetPage/InfoButtonsContainer';
+import PlanetImage from '../Components/PlanetPage/PlanetImage';
+import StatisticsContainer from '../Components/PlanetPage/StatisticsContainer';
 
 import styled from 'styled-components';
 
@@ -131,7 +134,7 @@ export default function Planets() {
 
     if (planetInfo && planetInfo[info]) {
       planetDecriptionText = planetInfo[info].content;
-      planetWikiLink = textToDisplay = planetInfo[info].source;
+      planetWikiLink = planetInfo[info].source;
     }
     // <>
     //   <p> - {planetInfo[info].content}</p>
@@ -211,64 +214,23 @@ export default function Planets() {
             </a>
           </p> */}
             {/* {displayedInfo.text} */}
+            <InfoButtonsContainer changeDisplayedInfo={changeDisplayedInfo} />
 
-            <div className="buttons-container">
-              <button
-                onClick={() => {
-                  changeDisplayedInfo('overview', 'planetFull');
-                }}
-                className="button"
-              >
-                01 overview
-              </button>
-              <button
-                onClick={() => {
-                  changeDisplayedInfo('structure', 'planetInternal');
-                }}
-                className="button"
-              >
-                02 internal structure
-              </button>
-              <button
-                onClick={() => {
-                  changeDisplayedInfo('geology', 'planetGeology');
-                }}
-                className="button"
-              >
-                03 surface geology
-              </button>
-            </div>
+            <PlanetImage
+              displayedInfo={displayedInfo}
+              planetName={planetInfo.name}
+            />
+            <StatisticsContainer planetInfo={planetInfo} />
 
-            <p>rotation- {planetInfo.rotation}</p>
+            {/* <p>rotation- {planetInfo.rotation}</p>
             <p>radius- {planetInfo.radius}</p>
             <p>revolution- {planetInfo.revolution}</p>
             <p>temp- {planetInfo.temperature}</p>
-            <p>{`${planetInfo.name}Planet`}</p>
-            {displayedInfo.pic}
+            <p>{`${planetInfo.name}Planet`}</p> */}
+            {/* {displayedInfo.pic} */}
             {/* <img src={planetImages.planetFull} alt={planetInfo.name} />
           <img src={planetImages.planetInternal} alt={planetInfo.name} />
           <img src={planetImages.planetGeology} alt={planetInfo.name} /> */}
-            <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aperiam
-              optio obcaecati quis officia consequuntur numquam quo quam laborum
-              fuga aliquid ab fugit, vero ipsa sed culpa temporibus error iure
-              vitae? Perspiciatis distinctio accusantium porro repellendus,
-              maiores fugiat blanditiis facilis obcaecati nostrum consequatur.
-              Ipsa sequi animi ea corporis amet optio beatae! At, accusamus?
-              Facilis molestiae pariatur cupiditate ratione a nesciunt
-              doloremque! Non ipsa vitae qui voluptas, dignissimos aspernatur
-              maiores rerum error! Voluptas, in architecto ipsam asperiores
-              deserunt ea accusamus repudiandae nulla deleniti omnis iure saepe
-              perferendis temporibus voluptatem, harum, mollitia quod. Dolorum
-              repudiandae, dolore esse obcaecati, molestias cum aspernatur sunt
-              inventore, neque nulla beatae id atque deleniti quod rerum
-              temporibus laboriosam! Consequuntur expedita facilis in sint.
-              Autem sequi nesciunt quaerat repellendus. Amet iusto reiciendis
-              vitae nostrum consectetur ad laborum labore optio in aliquam et
-              distinctio temporibus harum totam a voluptatibus porro veniam
-              tempore minus, incidunt ipsum magnam similique molestias
-              doloremque. Libero.
-            </p>
           </div>
         </PlanetsPageContainer>
       ) : (
