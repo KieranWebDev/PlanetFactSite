@@ -3,7 +3,7 @@ export default function InfoButtonsContainer({ changeDisplayedInfo }) {
     <div className="buttons-container">
       <button
         onClick={() => {
-          changeDisplayedInfo('overview', 'planetFull');
+          changeDisplayedInfo('overview', 'images_planet');
         }}
         className="button"
       >
@@ -11,7 +11,7 @@ export default function InfoButtonsContainer({ changeDisplayedInfo }) {
       </button>
       <button
         onClick={() => {
-          changeDisplayedInfo('structure', 'planetInternal');
+          changeDisplayedInfo('structure', 'images_internal');
         }}
         className="button"
       >
@@ -19,7 +19,7 @@ export default function InfoButtonsContainer({ changeDisplayedInfo }) {
       </button>
       <button
         onClick={() => {
-          changeDisplayedInfo('geology', 'planetGeology');
+          changeDisplayedInfo('geology', 'images_geology');
         }}
         className="button"
       >

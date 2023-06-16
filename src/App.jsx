@@ -46,17 +46,19 @@ function App() {
           <img src={planets[0].images_planet} alt="" />
         </>
       )} */}
-      <BrowserRouter>
-        <Routes>
-          <Route element={<PageLayout />}>
-            <Route index element={<Navigate to="/earth" />} />
-            <Route
-              path="/:id"
-              element={<Planets allPlanetsData={allPlanetsData} />}
-            />
-          </Route>
-        </Routes>
-      </BrowserRouter>
+      {allPlanetsData.length > 0 && (
+        <BrowserRouter>
+          <Routes>
+            <Route element={<PageLayout />}>
+              <Route index element={<Navigate to="/earth" />} />
+              <Route
+                path="/:id"
+                element={<Planets allPlanetsData={allPlanetsData} />}
+              />
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      )}
     </>
   );
 }
