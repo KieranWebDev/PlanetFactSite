@@ -1,10 +1,12 @@
 import styled from 'styled-components';
 
+const StyledContainer = styled.section`
+  grid-area: titleInfo;
+`;
+
 export default function TitleAndInfoContainer({ planetName, displayedInfo }) {
   //   console.log(displayedInfo);
-  const StyledContainer = styled.section`
-    grid-area: titleInfo;
-  `;
+
   return (
     <StyledContainer>
       <h1>{planetName}</h1>

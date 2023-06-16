@@ -24,9 +24,9 @@
   --lg-line-height: 52px;
   --xl-line-height: 103px;
   /* letter-spacing */
-  --xs-letter-spacing: -1.5;
-  --small-line-spacing: -1;
-  -lg-line-spacing: 2.6;
+  --xs-letter-spacing: -1.5px;
+  --small-letter-spacing: -1px;
+  --lg-letter-spacing: 2.6px;
 }
 html {
   box-sizing: border-box;
