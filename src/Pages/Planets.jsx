@@ -59,7 +59,10 @@ export default function Planets({ allPlanetsData }) {
             displayedInfo={displayedInfo}
           />
 
-          <InfoButtonsContainer changeDisplayedInfo={changeDisplayedInfo} />
+          <InfoButtonsContainer
+            changeDisplayedInfo={changeDisplayedInfo}
+            buttonBorderColor={planetInfo.id}
+          />
 
           <PlanetImage
             displayedInfo={displayedInfo}
