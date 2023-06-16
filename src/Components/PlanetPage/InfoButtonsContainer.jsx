@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 
-const StyledButtonsContainer = styled.div`
+const StyledContainer = styled.div`
   grid-area: buttons;
 `;
 
 export default function InfoButtonsContainer({ changeDisplayedInfo }) {
   return (
-    <StyledButtonsContainer className="buttons-container">
+    <StyledContainer className="buttons-container">
       <button
         onClick={() => {
           changeDisplayedInfo('overview', 'images_planet');
@@ -31,6 +31,6 @@ export default function InfoButtonsContainer({ changeDisplayedInfo }) {
       >
         03 surface geology
       </button>
-    </StyledButtonsContainer>
+    </StyledContainer>
   );
 }
