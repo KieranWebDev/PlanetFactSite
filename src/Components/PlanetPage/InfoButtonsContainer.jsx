@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 
 const StyledContainer = styled.div`
@@ -23,6 +23,7 @@ const StyledButton = styled.button`
   font-weight: 700;
   font-size: 11px;
   letter-spacing: var(--lg-letter-spacing);
+  outline: none;
   ${'' /* letter-spacing: 1.9px; */}
 
   &:hover,
@@ -60,6 +61,11 @@ export default function InfoButtonsContainer({
   buttonBorderColor,
 }) {
   // console.log(buttonBorderColor);
+  const buttonRef = useRef(null);
+
+  useEffect(() => {
+    buttonRef.current.focus();
+  }, [buttonBorderColor]);
   return (
     <StyledContainer>
       <StyledButton
@@ -67,6 +73,7 @@ export default function InfoButtonsContainer({
         onClick={() => {
           changeDisplayedInfo('overview', 'images_planet');
         }}
+        ref={buttonRef}
       >
         <StyledSmallScreenSpan>overview</StyledSmallScreenSpan>
         <StyledLgScreenSpan>
