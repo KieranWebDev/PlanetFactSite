@@ -15,36 +15,48 @@ const apiKey =
 const supabase = createClient(projecturl, apiKey);
 
 function App() {
-  const [planets, setPlanets] = useState([]);
+  const [allPlanetsData, setAllPlanetsData] = useState([]);
 
   useEffect(() => {
     getPlanets();
   }, []);
 
+  // useEffect(() => {
+  //   console.log(planets);
+  // }, [planets]);
+
   async function getPlanets() {
     const { data } = await supabase.from('planets').select();
-
-    setPlanets(data);
-    console.log(data);
+    setAllPlanetsData(data);
+    console.log('data fetched');
+    // console.log(planets);
   }
-
+  {
+    /* <ul>
+  {planets.map((planet) => ( 
+    <li key={planet.name}>{planet.name}</li>
+  ))}
+      </ul> */
+  }
   return (
     <>
-      <h1>{planets[0].name}</h1>
-      <img src={planets[0].images_planet} alt="" />
-      <ul>
-        {/* {planets.map((planet) => (
-          <li key={planet.name}>{planet.name}</li>
-        ))} */}
-      </ul>
-      {/* <BrowserRouter>
+      {/* {planets.length > 0 && (
+        <>
+          <h1>{planets[0].name}</h1>
+          <img src={planets[0].images_planet} alt="" />
+        </>
+      )} */}
+      <BrowserRouter>
         <Routes>
           <Route element={<PageLayout />}>
             <Route index element={<Navigate to="/earth" />} />
-            <Route path="/:id" element={<Planets />} />
+            <Route
+              path="/:id"
+              element={<Planets allPlanetsData={allPlanetsData} />}
+            />
           </Route>
         </Routes>
-      </BrowserRouter> */}
+      </BrowserRouter>
     </>
   );
 }
