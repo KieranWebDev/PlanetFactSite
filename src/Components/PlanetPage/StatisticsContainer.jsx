@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { breakPoints } from '../../breakPointAndImgSizes';
 
 const StyledContainer = styled.section`
   grid-area: statistics;
@@ -7,6 +8,10 @@ const StyledContainer = styled.section`
   display: flex;
   flex-direction: column;
   gap: 8px;
+  @media (min-width: ${breakPoints.tablet}) {
+    flex-direction: row;
+    justify-content: center;
+  }
 `;
 
 const StyledStatInfo = styled.div`
@@ -28,6 +33,18 @@ const StyledStatInfo = styled.div`
   & span:nth-of-type(2) {
     font-size: calc(var(--font-size-reg) + 4px);
     font-family: var(--title-font);
+  }
+  @media (min-width: ${breakPoints.tablet}) {
+    flex-direction: column;
+    flex-grow: 1;
+    align-items: flex-start;
+    gap: 0.5em;
+    padding: 1em;
+
+    & span:nth-of-type(2) {
+      font-size: calc(var(--font-size-reg) + 8px);
+      font-family: var(--title-font);
+    }
   }
 `;
 
