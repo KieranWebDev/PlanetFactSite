@@ -21,6 +21,9 @@ const StyledPlanetPageContainer = styled.main`
       'image image'
       'titleInfo buttons'
       'statistics statistics';
+
+    ${'' /* CHANGE GAP PROPERTY LATER */}
+    gap:0;
   }
   @media (min-width: ${breakPoints.desktop}) {
     grid-template-columns: 1fr 1fr;
