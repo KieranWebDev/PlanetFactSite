@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { breakPoints } from '../../breakPointAndImgSizes';
 
 const StyledPlanetPageContainer = styled.main`
   max-width: 1600px;
@@ -13,7 +14,7 @@ const StyledPlanetPageContainer = styled.main`
     'statistics';
   gap: 1.5rem;
 
-  @media (min-width: 550px) {
+  @media (min-width: ${breakPoints.tablet}) {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto;
     grid-template-areas:
@@ -21,7 +22,7 @@ const StyledPlanetPageContainer = styled.main`
       'titleInfo buttons'
       'statistics statistics';
   }
-  @media (min-width: 850px) {
+  @media (min-width: ${breakPoints.desktop}) {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto;
     grid-template-areas:
