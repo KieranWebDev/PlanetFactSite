@@ -67,7 +67,16 @@ const StyledImageSecondary = styled.img`
   width: 70px;
   position: absolute;
   left: 50%;
-  top: 100%;
+
+  top: ${(props) => {
+    if (props.planetid === 'jupiter') {
+      return '95%';
+    } else if (props.planetid === 'saturn') {
+      return '90%';
+    } else {
+      return '100%';
+    }
+  }};
   transform: translate(-50%, -50%);
 `;
 
@@ -78,6 +87,7 @@ export default function PlanetImage({ displayedInfo, planetName, planetId }) {
         <StyledImageMain src={displayedInfo.picToDisplay} alt={planetName} />
         {displayedInfo.additionalSurfacePic && (
           <StyledImageSecondary
+            planetid={planetId}
             src={displayedInfo.additionalSurfacePic}
             alt={planetName + 'surface'}
           />
