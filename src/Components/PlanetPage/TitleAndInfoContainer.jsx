@@ -1,10 +1,18 @@
 import styled from 'styled-components';
+import { breakPoints } from '../../breakPointAndImgSizes';
+// icons
 import SourceIcon from '../../assets/icon-source.svg';
 
 const StyledContainer = styled.section`
   grid-area: titleInfo;
   padding: 0 1.5rem;
   text-align: center;
+
+  @media (min-width: ${breakPoints.tablet}) {
+    text-align: left;
+    padding: 0;
+    padding-left: 1.5em;
+  }
 `;
 const StyledH1 = styled.h1`
   font-size: var(--font-size-lg);
@@ -12,6 +20,9 @@ const StyledH1 = styled.h1`
   letter-spacing: 1.5px;
   font-weight: 400;
   margin-bottom: 0.5em;
+
+  @media (min-width: ${breakPoints.tablet}) {
+  }
 `;
 
 const StyledP = styled.p`
