@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import { breakPoints } from '../../breakPointAndImgSizes';
 import styled from 'styled-components';
 
 const StyledContainer = styled.div`
@@ -36,7 +37,7 @@ const StyledButton = styled.button`
   }
 `;
 const StyledSmallScreenSpan = styled.span`
-  @media (min-width: 550px) {
+  @media (min-width: ${breakPoints.tablet}) {
     display: none;
   }
 `;
@@ -44,14 +45,14 @@ const StyledSmallScreenSpan = styled.span`
 const StyledLgScreenSpan = styled.span`
   display: none;
 
-  @media (min-width: 550px) {
+  @media (min-width: ${breakPoints.tablet}) {
     display: inline;
   }
 `;
 const NumberSpan = styled.span`
   display: none;
 
-  @media (min-width: 550px) {
+  @media (min-width: ${breakPoints.tablet}) {
     display: inline;
   }
 `;
