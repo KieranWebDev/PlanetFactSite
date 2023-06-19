@@ -9,6 +9,15 @@ const StyledContainer = styled.div`
   ${'' /* height: 50px; */}
   ${'' /* width: 100%; */}
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+
+  @media (min-width: ${breakPoints.tablet}) {
+    padding-right: 1.5em;
+    ${'' /* border: 1px solid white; */}
+    flex-direction: column;
+    justify-content: center;
+    gap: 1em;
+    border-bottom: none;
+  }
 `;
 
 const StyledButton = styled.button`
@@ -30,8 +39,24 @@ const StyledButton = styled.button`
   &:hover,
   &:focus,
   &:active {
-    border-bottom: 5px solid red;
     border-bottom-color: ${(props) => `var(--${props.buttonbordercolor})`};
+    opacity: 1;
+    color: var(--text-color);
+  }
+
+  @media (min-width: ${breakPoints.tablet}) {
+    width: 90%;
+    align-self: flex-end;
+    padding: 1.5em 2em;
+    text-align: left;
+    color: var(--font-color);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: ${(props) => `var(--${props.buttonbordercolor})`};
+    border: none;
     opacity: 1;
     color: var(--text-color);
   }
@@ -54,6 +79,7 @@ const NumberSpan = styled.span`
 
   @media (min-width: ${breakPoints.tablet}) {
     display: inline;
+    margin-right: 1.5em;
   }
 `;
 
