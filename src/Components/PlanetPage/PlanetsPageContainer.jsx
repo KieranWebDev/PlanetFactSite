@@ -11,7 +11,7 @@ const StyledPlanetPageContainer = styled.main`
     'image'
     'titleInfo'
     'statistics';
-  gap: 2rem;
+  gap: 1.5rem;
 
   @media (min-width: 550px) {
     grid-template-columns: 1fr 1fr;
