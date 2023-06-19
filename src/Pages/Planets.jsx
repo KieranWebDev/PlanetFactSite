@@ -67,6 +67,7 @@ export default function Planets({ allPlanetsData }) {
           <PlanetImage
             displayedInfo={displayedInfo}
             planetName={planetInfo.name}
+            planetId={planetInfo.id}
           />
           <StatisticsContainer planetInfo={planetInfo} />
         </PlanetsPageContainer>
