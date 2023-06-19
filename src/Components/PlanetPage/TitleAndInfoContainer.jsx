@@ -12,6 +12,7 @@ const StyledContainer = styled.section`
     text-align: left;
     padding: 0;
     padding-left: 1.5em;
+    ${'' /* padding-right: 1em; */}
   }
 `;
 const StyledH1 = styled.h1`

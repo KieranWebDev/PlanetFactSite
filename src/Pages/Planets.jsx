@@ -29,6 +29,7 @@ export default function Planets({ allPlanetsData }) {
     let planetWikiLink = '';
     let picToDisplay = '';
     let additionalSurfacePic = '';
+    let infoCategory = info;
 
     if (planetInfo) {
       planetDecriptionText = planetInfo[`${info}_content`];
@@ -47,6 +48,7 @@ export default function Planets({ allPlanetsData }) {
       planetWikiLink: planetWikiLink,
       picToDisplay: picToDisplay,
       additionalSurfacePic: additionalSurfacePic,
+      infoCategory: infoCategory,
     });
   }
 
@@ -61,6 +63,7 @@ export default function Planets({ allPlanetsData }) {
 
           <InfoButtonsContainer
             changeDisplayedInfo={changeDisplayedInfo}
+            displayedInfo={displayedInfo}
             buttonBorderColor={planetInfo.id}
           />
 
