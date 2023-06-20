@@ -17,6 +17,7 @@ const StyledContainer = styled.section`
   }
   @media (min-width: ${breakPoints.desktop}) {
     margin-top: 100px;
+    margin-bottom: 0;
     padding-left: 0;
   }
 `;

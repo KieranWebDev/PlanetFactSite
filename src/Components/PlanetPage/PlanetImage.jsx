@@ -19,6 +19,7 @@ const StyledPlanetContainer = styled.section`
     max-height: 800px;
     border: 1px solid white;
     margin-top: 50px;
+    margin-bottom: 40px;
   }
 `;
 

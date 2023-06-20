@@ -12,6 +12,10 @@ const StyledContainer = styled.section`
     flex-direction: row;
     justify-content: center;
   }
+  @media (min-width: ${breakPoints.desktop}) {
+    padding: 0;
+    gap: 1.5em;
+  }
 `;
 
 const StyledStatInfo = styled.div`
@@ -26,7 +30,7 @@ const StyledStatInfo = styled.div`
 
   & span:first-of-type {
     color: var(--secondary-font-color);
-    font-size: 10px;
+    font-size: 11px;
     letter-spacing: 0.7px;
   }
 
@@ -43,7 +47,17 @@ const StyledStatInfo = styled.div`
 
     & span:nth-of-type(2) {
       font-size: calc(var(--font-size-reg) + 8px);
-      font-family: var(--title-font);
+    }
+
+    @media (min-width: ${breakPoints.desktop}) {
+      & span:first-of-type {
+        font-size: 0.7rem;
+        letter-spacing: 0.7px;
+      }
+
+      & span:nth-of-type(2) {
+        font-size: var(--font-size-lg);
+      }
     }
   }
 `;
