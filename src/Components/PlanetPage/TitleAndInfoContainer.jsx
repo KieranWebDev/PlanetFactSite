@@ -36,11 +36,14 @@ const StyledH1 = styled.h1`
 
 const StyledP = styled.p`
   font-size: var(--font-size-sm);
-  font-size: 15px;
+  font-size: 16px;
   line-height: var(--standard-line-height);
   font-weight: 300;
   opacity: 0.9;
   margin-bottom: 1.9em;
+  @media (min-width: ${breakPoints.desktop}) {
+    min-height: 125px;
+  }
 `;
 
 const StyledLink = styled.div`

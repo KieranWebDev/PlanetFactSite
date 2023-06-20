@@ -17,7 +17,6 @@ const StyledPlanetContainer = styled.section`
     height: auto;
     min-height: 600px;
     max-height: 800px;
-    border: 1px solid white;
     margin-top: 50px;
     margin-bottom: 40px;
   }
@@ -58,6 +57,26 @@ const StyledImageSecondary = styled.img`
     }
   }};
   transform: translate(-50%, -50%);
+
+  @media (min-width: ${breakPoints.tablet}) {
+    height: 120px;
+    width: 100px;
+
+    top: ${(props) => {
+      if (props.planetid === 'jupiter') {
+        return '80%';
+      } else if (props.planetid === 'saturn') {
+        return '75%';
+      } else {
+        return '90%';
+      }
+    }};
+
+    @media (min-width: ${breakPoints.desktop}) {
+      height: 200px;
+      width: 160px;
+    }
+  }
 `;
 
 export default function PlanetImage({ displayedInfo, planetName, planetId }) {
