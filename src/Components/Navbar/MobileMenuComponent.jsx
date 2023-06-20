@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+// import { breakPoints } from '../../breakPointAndImgSizes';
 //icon image
 import Chevron from '../../assets/icon-chevron.svg';
 

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { breakPoints } from '../../breakPointAndImgSizes';
 import styled from 'styled-components';
 // icons
 import HamburgerIcon from '../../assets/icon-hamburger.svg';
@@ -16,6 +17,7 @@ const Header = styled.div`
   width: 100%;
   top: 0;
   left: 0;
+  z-index: 10;
 `;
 const HeaderContainer = styled.div`
   display: flex;
@@ -25,7 +27,7 @@ const HeaderContainer = styled.div`
   width: 100%;
   top: 0;
   left: 0;
-  @media (min-width: 550px) {
+  @media (min-width: ${breakPoints.tablet}) {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
@@ -34,7 +36,7 @@ const HeaderContainer = styled.div`
     margin: 0 auto;
   }
 
-  @media (min-width: 850px) {
+  @media (min-width: ${breakPoints.navDesktop}) {
     padding: 0 2em;
     justify-content: space-between;
   }
@@ -42,13 +44,13 @@ const HeaderContainer = styled.div`
 const NavHeading = styled.h2`
   font-weight: 400;
   font-size: 28px;
-  @media (min-width: 550px) {
+  @media (min-width: ${breakPoints.tablet}) {
     flex-basis: 100%;
     text-align: center;
     padding: 1em 0 0.5em 0;
   }
 
-  @media (min-width: 850px) {
+  @media (min-width: ${breakPoints.navDesktop}) {
     flex-basis: auto;
     font-size: 1.5rem;
     letter-spacing: var(--small-line-spacing);
@@ -59,7 +61,7 @@ const NavHeading = styled.h2`
 const HamburgerButton = styled.button`
   background: inherit;
   border: none;
-  @media (min-width: 550px) {
+  @media (min-width: ${breakPoints.tablet}) {
     display: none;
   }
 `;
