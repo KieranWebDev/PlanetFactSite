@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { breakPoints } from '../../breakPointAndImgSizes';
 import styled from 'styled-components';
+// device breakpoints
+import { breakPoints } from '../../breakPointAndImgSizes';
 // icons
 import HamburgerIcon from '../../assets/icon-hamburger.svg';
 // components
