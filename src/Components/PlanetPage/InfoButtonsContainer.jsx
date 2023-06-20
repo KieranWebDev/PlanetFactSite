@@ -65,6 +65,10 @@ const StyledButton = styled.button`
     color: var(--font-color);
     border: 1px solid rgba(255, 255, 255, 0.2);
 
+    &:hover {
+      transition: all 0.25s ease-in-out;
+    }
+
     &.overview {
       background-color: ${(props) =>
         props.infocategory === 'overview'
