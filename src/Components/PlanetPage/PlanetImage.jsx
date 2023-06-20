@@ -42,7 +42,7 @@ const StyledImageMain = styled.img`
   height: 100%;
 `;
 const StyledImageSecondary = styled.img`
-  height: 75px;
+  height: 85px;
   width: 70px;
   position: absolute;
   left: 50%;

@@ -1,11 +1,12 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+import { breakPoints } from '../../breakPointAndImgSizes';
 
 // STYLES
 const UlDesktop = styled.ul`
   display: none;
 
-  @media (min-width: 550px) {
+  @media (min-width: ${breakPoints.tablet}) {
     height: 100%;
     display: flex;
     justify-content: space-between;
@@ -15,26 +16,31 @@ const UlDesktop = styled.ul`
 `;
 
 const LiDesktop = styled.li`
-  @media (min-width: 550px) {
-    border-top: 5px solid transparent;
+  @media (min-width: ${breakPoints.tablet}) {
+    ${'' /* border-top: 5px solid transparent; */}
     text-align: center;
     opacity: 0.75;
 
-    &:hover,
+    ${
+      '' /* &:hover,
     &:focus,
     &:active {
       border-top: 5px solid red;
       border-top-color: ${(props) => `var(${props.linkcolor})`};
       opacity: 1;
+    } */
     }
   }
-  @media (min-width: 800px) {
+
+  @media (min-width: ${breakPoints.navDesktop}) {
     min-width: 70px;
   }
 `;
 
 const StyledLink = styled(Link)`
-  @media (min-width: 550px) {
+  @media (min-width: ${breakPoints.tablet}) {
+    text-transform: uppercase;
+    border-top: 5px solid transparent;
     padding: 2em 0;
     text-decoration: none;
     display: block;
@@ -48,15 +54,101 @@ const StyledLink = styled(Link)`
     &:hover {
       opacity: 1;
     }
+
+    &.active {
+      border-top: 5px solid red;
+      border-top-color: ${(props) => `var(${props.linkcolor})`};
+      opacity: 1;
+    }
   }
 `;
 
 export default function DesktopMenuComponent() {
+  const location = useLocation();
+
   return (
     <UlDesktop>
-      <LiDesktop linkcolor={'--mercury'}>
-        <StyledLink to="/mercury">MERCURY</StyledLink>
+      <LiDesktop>
+        <StyledLink
+          to="/mercury"
+          linkcolor={'--mercury'}
+          className={location.pathname === '/mercury' ? 'active' : ''}
+        >
+          mercury
+        </StyledLink>
       </LiDesktop>
+
+      <LiDesktop>
+        <StyledLink
+          to="/venus"
+          linkcolor={'--venus'}
+          className={location.pathname === '/venus' ? 'active' : ''}
+        >
+          Venus
+        </StyledLink>
+      </LiDesktop>
+
+      <LiDesktop>
+        <StyledLink
+          to="/earth"
+          linkcolor={'--earth'}
+          className={location.pathname === '/earth' ? 'active' : ''}
+        >
+          Earth
+        </StyledLink>
+      </LiDesktop>
+
+      <LiDesktop>
+        <StyledLink
+          to="/mars"
+          linkcolor={'--mars'}
+          className={location.pathname === '/mars' ? 'active' : ''}
+        >
+          Mars
+        </StyledLink>
+      </LiDesktop>
+
+      <LiDesktop>
+        <StyledLink
+          to="/jupiter"
+          linkcolor={'--jupiter'}
+          className={location.pathname === '/jupiter' ? 'active' : ''}
+        >
+          Jupiter
+        </StyledLink>
+      </LiDesktop>
+
+      <LiDesktop>
+        <StyledLink
+          to="/saturn"
+          linkcolor={'--saturn'}
+          className={location.pathname === '/saturn' ? 'active' : ''}
+        >
+          Saturn
+        </StyledLink>
+      </LiDesktop>
+
+      <LiDesktop>
+        <StyledLink
+          to="/uranus"
+          linkcolor={'--uranus'}
+          className={location.pathname === '/uranus' ? 'active' : ''}
+        >
+          Uranus
+        </StyledLink>
+      </LiDesktop>
+
+      <LiDesktop>
+        <StyledLink
+          to="/neptune"
+          linkcolor={'--neptune'}
+          className={location.pathname === '/neptune' ? 'active' : ''}
+        >
+          Neptune
+        </StyledLink>
+      </LiDesktop>
+
+      {/* 
       <LiDesktop linkcolor={'--venus'}>
         <StyledLink to="/venus">VENUS</StyledLink>
       </LiDesktop>
@@ -77,7 +169,7 @@ export default function DesktopMenuComponent() {
       </LiDesktop>
       <LiDesktop linkcolor={'--neptune'}>
         <StyledLink to="/neptune">NEPTUNE</StyledLink>
-      </LiDesktop>
+      </LiDesktop> */}
     </UlDesktop>
   );
 }
