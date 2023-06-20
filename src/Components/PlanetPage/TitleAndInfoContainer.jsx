@@ -15,6 +15,10 @@ const StyledContainer = styled.section`
     margin-bottom: 1.6em;
     ${'' /* padding-right: 1em; */}
   }
+  @media (min-width: ${breakPoints.desktop}) {
+    margin-top: 100px;
+    padding-left: 0;
+  }
 `;
 const StyledH1 = styled.h1`
   font-size: var(--font-size-lg);
@@ -23,7 +27,9 @@ const StyledH1 = styled.h1`
   font-weight: 400;
   margin-bottom: 0.5em;
 
-  @media (min-width: ${breakPoints.tablet}) {
+  @media (min-width: ${breakPoints.desktop}) {
+    font-size: var(--font-size-xl);
+    margin-bottom: 0.3em;
   }
 `;
 

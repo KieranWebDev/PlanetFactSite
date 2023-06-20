@@ -13,6 +13,13 @@ const StyledPlanetContainer = styled.section`
     min-height: 450px;
     max-height: 500px;
   }
+  @media (min-width: ${breakPoints.desktop}) {
+    height: auto;
+    min-height: 600px;
+    max-height: 800px;
+    border: 1px solid white;
+    margin-top: 50px;
+  }
 `;
 
 const StyledImageContainer = styled.div`
@@ -23,6 +30,10 @@ const StyledImageContainer = styled.div`
   @media (min-width: ${breakPoints.tablet}) {
     max-height: ${(props) => imageSizes[props.planetid].tablet};
     max-width: ${(props) => imageSizes[props.planetid].tablet};
+  }
+  @media (min-width: ${breakPoints.desktop}) {
+    max-height: ${(props) => imageSizes[props.planetid].desktop};
+    max-width: ${(props) => imageSizes[props.planetid].desktop};
   }
 `;
 

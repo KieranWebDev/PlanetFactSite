@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { breakPoints } from '../../breakPointAndImgSizes';
 
 const StyledPlanetPageContainer = styled.main`
-  max-width: 1600px;
+  max-width: 1100px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr;
@@ -26,12 +26,12 @@ const StyledPlanetPageContainer = styled.main`
     gap:0;
   }
   @media (min-width: ${breakPoints.desktop}) {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: auto;
     grid-template-areas:
-      'image titleInfo'
-      'image buttons'
-      'statistics statistics';
+      'image image titleInfo'
+      'image image buttons'
+      'statistics statistics statistics';
   }
 `;
 
