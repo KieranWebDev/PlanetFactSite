@@ -15,6 +15,11 @@ const StyledContainer = styled.section`
     margin-bottom: 1.6em;
     ${'' /* padding-right: 1em; */}
   }
+  @media (min-width: ${breakPoints.desktop}) {
+    margin-top: 100px;
+    margin-bottom: 0;
+    padding-left: 0;
+  }
 `;
 const StyledH1 = styled.h1`
   font-size: var(--font-size-lg);
@@ -23,17 +28,22 @@ const StyledH1 = styled.h1`
   font-weight: 400;
   margin-bottom: 0.5em;
 
-  @media (min-width: ${breakPoints.tablet}) {
+  @media (min-width: ${breakPoints.desktop}) {
+    font-size: var(--font-size-xl);
+    margin-bottom: 0.3em;
   }
 `;
 
 const StyledP = styled.p`
   font-size: var(--font-size-sm);
-  font-size: 15px;
+  font-size: 16px;
   line-height: var(--standard-line-height);
   font-weight: 300;
   opacity: 0.9;
   margin-bottom: 1.9em;
+  @media (min-width: ${breakPoints.desktop}) {
+    min-height: 125px;
+  }
 `;
 
 const StyledLink = styled.div`

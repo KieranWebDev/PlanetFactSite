@@ -14,6 +14,13 @@ const StyledContainer = styled.div`
     gap: 1em;
     border-bottom: none;
   }
+  @media (min-width: ${breakPoints.desktop}) {
+    padding-right: 0;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 1em;
+    border-bottom: none;
+  }
 `;
 
 const StyledButton = styled.button`
@@ -25,7 +32,7 @@ const StyledButton = styled.button`
   text-transform: uppercase;
   font-family: inherit;
   font-weight: 700;
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: var(--lg-letter-spacing);
   outline: none;
 
@@ -50,18 +57,6 @@ const StyledButton = styled.button`
         : 'none'};
   }
 
-  ${'' /* letter-spacing: 1.9px; */}
-
-  ${
-    '' /* &:hover,
-  &:focus,
-  &:active {
-    border-bottom-color: ${(props) => `var(--${props.buttonbordercolor})`};
-    opacity: 1;
-    color: var(--text-color);
-  } */
-  }
-
   @media (min-width: ${breakPoints.tablet}) {
     width: 85%;
     align-self: flex-end;
@@ -75,6 +70,12 @@ const StyledButton = styled.button`
         props.infocategory === 'overview'
           ? `var(--${props.buttonbordercolor})`
           : 'inherit'};
+      &:hover {
+        background-color: ${(props) =>
+          props.infocategory === 'overview'
+            ? `var(--${props.buttonbordercolor})`
+            : 'var(--button-hover)'};
+      }
     }
 
     &.structure {
@@ -82,6 +83,12 @@ const StyledButton = styled.button`
         props.infocategory === 'structure'
           ? `var(--${props.buttonbordercolor})`
           : 'inherit'};
+      &:hover {
+        background-color: ${(props) =>
+          props.infocategory === 'structure'
+            ? `var(--${props.buttonbordercolor})`
+            : 'var(--button-hover)'};
+      }
     }
 
     &.geology {
@@ -89,18 +96,21 @@ const StyledButton = styled.button`
         props.infocategory === 'geology'
           ? `var(--${props.buttonbordercolor})`
           : 'inherit'};
+      &:hover {
+        background-color: ${(props) =>
+          props.infocategory === 'geology'
+            ? `var(--${props.buttonbordercolor})`
+            : 'var(--button-hover)'};
+      }
     }
   }
 
-  ${
-    '' /* &:hover,
-  &:focus,
-  &:active {
-    background-color: ${(props) => `var(--${props.buttonbordercolor})`};
-    border: none;
-    opacity: 1;
-    color: var(--text-color);
-  } */
+  @media (min-width: ${breakPoints.desktop}) {
+    width: 100%;
+  }
+
+  &:hover {
+    cursor: pointer;
   }
 `;
 const StyledSmallScreenSpan = styled.span`

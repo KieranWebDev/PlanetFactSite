@@ -1,6 +1,6 @@
 export const breakPoints = {
   tablet: '650px',
-  desktop: '850px',
+  desktop: '1150px',
 };
 
 export const imageSizes = {
