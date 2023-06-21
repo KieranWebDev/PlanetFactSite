@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { breakPoints } from '../../breakPointAndImgSizes';
 // icons
 import SourceIcon from '../../assets/icon-source.svg';
+import { motion } from 'framer-motion';
 
 const StyledContainer = styled.section`
   grid-area: titleInfo;
@@ -21,7 +22,7 @@ const StyledContainer = styled.section`
     padding-left: 0;
   }
 `;
-const StyledH1 = styled.h1`
+const StyledH1 = styled(motion.h1)`
   font-size: var(--font-size-lg);
   text-transform: uppercase;
   letter-spacing: 1.5px;
@@ -34,7 +35,7 @@ const StyledH1 = styled.h1`
   }
 `;
 
-const StyledP = styled.p`
+const StyledP = styled(motion.p)`
   font-size: var(--font-size-sm);
   font-size: 16px;
   line-height: var(--standard-line-height);
@@ -46,7 +47,7 @@ const StyledP = styled.p`
   }
 `;
 
-const StyledLink = styled.div`
+const StyledLink = styled(motion.div)`
   color: var(--secondary-font-color);
 
   a {
@@ -74,13 +75,35 @@ const StyledLink = styled.div`
 `;
 
 export default function TitleAndInfoContainer({ planetName, displayedInfo }) {
-  //   console.log(displayedInfo);
+  console.log(displayedInfo);
 
   return (
     <StyledContainer>
-      <StyledH1>{planetName}</StyledH1>
-      <StyledP>{displayedInfo.planetDecriptionText}</StyledP>
-      <StyledLink>
+      <StyledH1
+        key={planetName}
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -20 }}
+        transition={{ ease: 'easeOut', duration: 1 }}
+      >
+        {planetName}
+      </StyledH1>
+      <StyledP
+        key={displayedInfo.planetDecriptionText}
+        initial={{ opacity: 0, x: +40 }}
+        animate={{ opacity: 1, x: 0 }}
+        exit={{ opacity: 0, x: +40 }}
+        transition={{ ease: 'easeOut', duration: 1 }}
+      >
+        {displayedInfo.planetDecriptionText}
+      </StyledP>
+      <StyledLink
+      // key={displayedInfo.planetWikiLink}
+      // initial={{ opacity: 0, y: -20 }}
+      // animate={{ opacity: 1, y: 0 }}
+      // exit={{ opacity: 0, y: -20 }}
+      // transition={{ ease: 'easeOut', duration: 1 }}
+      >
         Source :
         <a target="_blank" rel="noreferrer" href={displayedInfo.planetWikiLink}>
           Wikipedia

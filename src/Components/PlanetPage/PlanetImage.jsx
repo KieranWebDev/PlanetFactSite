@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { imageSizes } from '../../breakPointAndImgSizes';
 import { breakPoints } from '../../breakPointAndImgSizes';
+import { motion } from 'framer-motion';
 
 const StyledPlanetContainer = styled.section`
   grid-area: image;
@@ -22,7 +23,7 @@ const StyledPlanetContainer = styled.section`
   }
 `;
 
-const StyledImageContainer = styled.div`
+const StyledImageContainer = styled(motion.div)`
   position: relative;
   max-height: ${(props) => imageSizes[props.planetid].mobile};
   max-width: ${(props) => imageSizes[props.planetid].mobile};
@@ -37,7 +38,7 @@ const StyledImageContainer = styled.div`
   }
 `;
 
-const StyledImageMain = styled.img`
+const StyledImageMain = styled(motion.img)`
   width: 100%;
   height: 100%;
 `;
@@ -82,10 +83,30 @@ const StyledImageSecondary = styled.img`
 export default function PlanetImage({ displayedInfo, planetName, planetId }) {
   return (
     <StyledPlanetContainer>
-      <StyledImageContainer planetid={planetId}>
-        <StyledImageMain src={displayedInfo.picToDisplay} alt={planetName} />
+      <StyledImageContainer
+        planetid={planetId}
+        key={displayedInfo.picToDisplay}
+        initial={{ opacity: 0, x: 0 }}
+        animate={{ opacity: 1, x: 0 }}
+        exit={{ opacity: 0, y: 0 }}
+        transition={{ ease: 'easeInOut', duration: 1.2 }}
+      >
+        <StyledImageMain
+          // key={displayedInfo.picToDisplay}
+          // initial={{ opacity: 0, y: -20 }}
+          // animate={{ opacity: 1, y: 0 }}
+          // exit={{ opacity: 0, y: -20 }}
+          // transition={{ ease: 'easeInOut', duration: 2 }}
+          src={displayedInfo.picToDisplay}
+          alt={planetName}
+        />
         {displayedInfo.additionalSurfacePic && (
           <StyledImageSecondary
+            key={displayedInfo.additionalSurfacePic}
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ ease: 'easeOut', duration: 1 }}
             planetid={planetId}
             src={displayedInfo.additionalSurfacePic}
             alt={planetName + 'surface'}
