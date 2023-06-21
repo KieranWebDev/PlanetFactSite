@@ -19,7 +19,7 @@ const LiDesktop = styled.li`
   @media (min-width: ${breakPoints.tablet}) {
     ${'' /* border-top: 5px solid transparent; */}
     text-align: center;
-    ${'' /* opacity: 0.75; */}
+
 
     ${
       '' /* &:hover,
@@ -59,7 +59,6 @@ const StyledLink = styled(Link)`
     }
 
     &.active {
-      border-top: 5px solid red;
       border-top-color: ${(props) => `var(${props.linkcolor})`};
       opacity: 1;
     }
