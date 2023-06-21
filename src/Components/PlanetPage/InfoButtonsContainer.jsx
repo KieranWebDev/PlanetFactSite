@@ -1,4 +1,4 @@
-import { breakPoints } from '../../breakPointAndImgSizes';
+import { breakPoints } from '../../Data/breakPointAndImgSizes';
 import styled from 'styled-components';
 
 const StyledContainer = styled.div`
@@ -64,6 +64,10 @@ const StyledButton = styled.button`
     text-align: left;
     color: var(--font-color);
     border: 1px solid rgba(255, 255, 255, 0.2);
+
+    &:hover {
+      transition: all 0.25s ease-in-out;
+    }
 
     &.overview {
       background-color: ${(props) =>

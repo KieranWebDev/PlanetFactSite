@@ -1,12 +1,24 @@
-import './App.css';
+// import './App.css';
 import { useEffect, useState } from 'react';
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
-import './server';
+import styled from 'styled-components';
+//components
 import Planets from './Pages/Planets';
 import PageLayout from './Components/PageLayout';
 
 // superbase
 import { createClient } from '@supabase/supabase-js';
+
+// particles
+import { useCallback } from 'react';
+import Particles from 'react-particles';
+import { loadFull } from 'tsparticles';
+import particleOptions from './Data/particleOptions';
+
+const ParticleContainer = styled.div`
+  position: relative;
+  z-index: -1;
+`;
 
 const projecturl = 'https://zfrqdfdxakyrccertitp.supabase.co';
 const apiKey =
@@ -17,47 +29,48 @@ const supabase = createClient(projecturl, apiKey);
 function App() {
   const [allPlanetsData, setAllPlanetsData] = useState([]);
 
+  // fetch data from supabase
   useEffect(() => {
     getPlanets();
   }, []);
-
-  // useEffect(() => {
-  //   console.log(planets);
-  // }, [planets]);
 
   async function getPlanets() {
     const { data } = await supabase.from('planets').select();
     setAllPlanetsData(data);
     console.log('data fetched');
-    // console.log(planets);
   }
-  {
-    /* <ul>
-  {planets.map((planet) => ( 
-    <li key={planet.name}>{planet.name}</li>
-  ))}
-      </ul> */
-  }
+
+  // particles
+  const particlesInit = useCallback(async (engine) => {
+    await loadFull(engine);
+  }, []);
+
+  // const particlesLoaded = useCallback(async () => {}, []);
+
   return (
     <>
-      {/* {planets.length > 0 && (
-        <>
-          <h1>{planets[0].name}</h1>
-          <img src={planets[0].images_planet} alt="" />
-        </>
-      )} */}
+      <ParticleContainer>
+        <Particles
+          id="tsparticles"
+          init={particlesInit}
+          // loaded={particlesLoaded}
+          options={particleOptions}
+        />
+      </ParticleContainer>
       {allPlanetsData.length > 0 && (
-        <BrowserRouter>
-          <Routes>
-            <Route element={<PageLayout />}>
-              <Route index element={<Navigate to="/earth" />} />
-              <Route
-                path="/:id"
-                element={<Planets allPlanetsData={allPlanetsData} />}
-              />
-            </Route>
-          </Routes>
-        </BrowserRouter>
+        <>
+          <BrowserRouter>
+            <Routes>
+              <Route element={<PageLayout />}>
+                <Route index element={<Navigate to="/earth" />} />
+                <Route
+                  path="/:id"
+                  element={<Planets allPlanetsData={allPlanetsData} />}
+                />
+              </Route>
+            </Routes>
+          </BrowserRouter>
+        </>
       )}
     </>
   );

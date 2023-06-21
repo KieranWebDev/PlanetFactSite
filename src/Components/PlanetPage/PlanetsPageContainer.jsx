@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { breakPoints } from '../../breakPointAndImgSizes';
+import { breakPoints } from '../../Data/breakPointAndImgSizes';
 
 const StyledPlanetPageContainer = styled.main`
   max-width: 1100px;
@@ -36,5 +36,15 @@ const StyledPlanetPageContainer = styled.main`
 `;
 
 export default function PlanetsPageContainer({ children }) {
-  return <StyledPlanetPageContainer>{children}</StyledPlanetPageContainer>;
+  return (
+    <StyledPlanetPageContainer
+    // key="yo"
+    // initial={{ opacity: 0, y: -20 }}
+    // animate={{ opacity: 1, y: 0 }}
+    // exit={{ opacity: 0, y: -20 }}
+    // transition={{ ease: 'easeOut', duration: 3 }}
+    >
+      {children}
+    </StyledPlanetPageContainer>
+  );
 }
