@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 import { breakPoints } from '../../breakPointAndImgSizes';
+import { motion } from 'framer-motion';
 
-const StyledContainer = styled.section`
+const StyledContainer = styled(motion.section)`
   grid-area: statistics;
   padding: 0 1.5em;
   margin-bottom: 3em;
@@ -62,9 +63,15 @@ const StyledStatInfo = styled.div`
   }
 `;
 
-export default function StatisticsContainer({ planetInfo }) {
+export default function StatisticsContainer({ planetInfo, planetId }) {
   return (
-    <StyledContainer>
+    <StyledContainer
+      key={planetId}
+      initial={{ opacity: 0, y: +20 }}
+      animate={{ opacity: 1, y: 0 }}
+      // exit={{ opacity: 0, y: -20 }}
+      transition={{ ease: 'easeOut', duration: 1.5 }}
+    >
       <StyledStatInfo>
         <span>rotation time</span>
         <span>{planetInfo.rotation}</span>

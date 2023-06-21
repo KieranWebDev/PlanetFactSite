@@ -35,6 +35,8 @@ const StyledH1 = styled(motion.h1)`
   }
 `;
 
+const StyledTextAndLinkContainer = styled(motion.div)``;
+
 const StyledP = styled(motion.p)`
   font-size: var(--font-size-sm);
   font-size: 16px;
@@ -65,6 +67,7 @@ const StyledLink = styled(motion.div)`
   & a:hover {
     color: white;
     text-decoration: underline;
+    transition: all 0.2s ease-in-out;
   }
   ${
     '' /* & a:hover img {
@@ -75,8 +78,6 @@ const StyledLink = styled(motion.div)`
 `;
 
 export default function TitleAndInfoContainer({ planetName, displayedInfo }) {
-  console.log(displayedInfo);
-
   return (
     <StyledContainer>
       <StyledH1
@@ -88,28 +89,26 @@ export default function TitleAndInfoContainer({ planetName, displayedInfo }) {
       >
         {planetName}
       </StyledH1>
-      <StyledP
+      <StyledTextAndLinkContainer
         key={displayedInfo.planetDecriptionText}
         initial={{ opacity: 0, x: +40 }}
         animate={{ opacity: 1, x: 0 }}
         exit={{ opacity: 0, x: +40 }}
         transition={{ ease: 'easeOut', duration: 1 }}
       >
-        {displayedInfo.planetDecriptionText}
-      </StyledP>
-      <StyledLink
-      // key={displayedInfo.planetWikiLink}
-      // initial={{ opacity: 0, y: -20 }}
-      // animate={{ opacity: 1, y: 0 }}
-      // exit={{ opacity: 0, y: -20 }}
-      // transition={{ ease: 'easeOut', duration: 1 }}
-      >
-        Source :
-        <a target="_blank" rel="noreferrer" href={displayedInfo.planetWikiLink}>
-          Wikipedia
-          <img src={SourceIcon} alt="link icon" />
-        </a>
-      </StyledLink>
+        <StyledP>{displayedInfo.planetDecriptionText}</StyledP>
+        <StyledLink>
+          Source :
+          <a
+            target="_blank"
+            rel="noreferrer"
+            href={displayedInfo.planetWikiLink}
+          >
+            Wikipedia
+            <img src={SourceIcon} alt="link icon" />
+          </a>
+        </StyledLink>
+      </StyledTextAndLinkContainer>
     </StyledContainer>
   );
 }

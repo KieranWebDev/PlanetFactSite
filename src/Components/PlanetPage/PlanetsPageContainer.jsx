@@ -1,8 +1,7 @@
 import styled from 'styled-components';
 import { breakPoints } from '../../breakPointAndImgSizes';
-import { motion, AnimatePresence } from 'framer-motion';
 
-const StyledPlanetPageContainer = styled(motion.section)`
+const StyledPlanetPageContainer = styled.main`
   max-width: 1100px;
   margin: 0 auto;
   display: grid;

@@ -82,31 +82,72 @@ const StyledImageSecondary = styled.img`
 
 export default function PlanetImage({ displayedInfo, planetName, planetId }) {
   return (
-    <StyledPlanetContainer>
-      <StyledImageContainer
+    <>
+      {!displayedInfo.additionalSurfacePic && (
+        <StyledPlanetContainer>
+          <StyledImageContainer
+            planetid={planetId}
+            key={displayedInfo.picToDisplay}
+            initial={{ opacity: 0, x: 0 }}
+            animate={{ opacity: 1, x: 0 }}
+            // exit={{ opacity: 0, y: 0 }}
+            transition={{ duration: 1.2 }}
+          >
+            <StyledImageMain
+              src={displayedInfo.picToDisplay}
+              alt={planetName}
+            />
+          </StyledImageContainer>
+        </StyledPlanetContainer>
+      )}
+      {displayedInfo.additionalSurfacePic && (
+        <StyledPlanetContainer>
+          <StyledImageContainer
+            planetid={planetId}
+            key={displayedInfo.picToDisplay}
+            initial={{ opacity: 0, x: 0 }}
+            animate={{ opacity: 1, x: 0 }}
+            // exit={{ opacity: 0, y: 0 }}
+            transition={{ duration: 1.2 }}
+          >
+            <StyledImageMain
+              src={displayedInfo.picToDisplay}
+              alt={planetName}
+            />
+            <StyledImageSecondary
+              key={displayedInfo.additionalSurfacePic}
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              // exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 1.2 }}
+              planetid={planetId}
+              src={displayedInfo.additionalSurfacePic}
+              alt={planetName + 'surface'}
+            />
+          </StyledImageContainer>
+        </StyledPlanetContainer>
+      )}
+    </>
+  );
+}
+
+{
+  /* <StyledImageContainer
         planetid={planetId}
         key={displayedInfo.picToDisplay}
         initial={{ opacity: 0, x: 0 }}
         animate={{ opacity: 1, x: 0 }}
-        exit={{ opacity: 0, y: 0 }}
-        transition={{ ease: 'easeInOut', duration: 1.2 }}
+        // exit={{ opacity: 0, y: 0 }}
+        transition={{ duration: 1.2 }}
       >
-        <StyledImageMain
-          // key={displayedInfo.picToDisplay}
-          // initial={{ opacity: 0, y: -20 }}
-          // animate={{ opacity: 1, y: 0 }}
-          // exit={{ opacity: 0, y: -20 }}
-          // transition={{ ease: 'easeInOut', duration: 2 }}
-          src={displayedInfo.picToDisplay}
-          alt={planetName}
-        />
+        <StyledImageMain src={displayedInfo.picToDisplay} alt={planetName} />
         {displayedInfo.additionalSurfacePic && (
           <StyledImageSecondary
             key={displayedInfo.additionalSurfacePic}
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ ease: 'easeOut', duration: 1 }}
+            // exit={{ opacity: 0, y: -20 }}
+            // transition={{ ease: 'easeOut', duration: 1 }}
             planetid={planetId}
             src={displayedInfo.additionalSurfacePic}
             alt={planetName + 'surface'}
@@ -114,5 +155,9 @@ export default function PlanetImage({ displayedInfo, planetName, planetId }) {
         )}
       </StyledImageContainer>
     </StyledPlanetContainer>
-  );
+    </> */
+}
+{
+  /* );
+} */
 }

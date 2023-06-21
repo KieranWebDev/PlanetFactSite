@@ -72,7 +72,10 @@ export default function Planets({ allPlanetsData }) {
             planetName={planetInfo.name}
             planetId={planetInfo.id}
           />
-          <StatisticsContainer planetInfo={planetInfo} />
+          <StatisticsContainer
+            planetInfo={planetInfo}
+            planetId={planetInfo.id}
+          />
         </PlanetsPageContainer>
       ) : (
         <div>Loading...</div>
