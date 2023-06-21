@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { breakPoints } from '../../breakPointAndImgSizes';
+import { breakPoints } from '../../Data/breakPointAndImgSizes';
 // icons
 import SourceIcon from '../../assets/icon-source.svg';
 import { motion } from 'framer-motion';

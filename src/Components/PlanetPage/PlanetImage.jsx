@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { imageSizes } from '../../breakPointAndImgSizes';
-import { breakPoints } from '../../breakPointAndImgSizes';
+import { imageSizes } from '../../Data/breakPointAndImgSizes';
+import { breakPoints } from '../../Data/breakPointAndImgSizes';
 import { motion } from 'framer-motion';
 
 const StyledPlanetContainer = styled.section`
@@ -105,10 +105,10 @@ export default function PlanetImage({ displayedInfo, planetName, planetId }) {
           <StyledImageContainer
             planetid={planetId}
             key={displayedInfo.picToDisplay}
-            initial={{ opacity: 0, x: 0 }}
-            animate={{ opacity: 1, x: 0 }}
-            // exit={{ opacity: 0, y: 0 }}
-            transition={{ duration: 1.2 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ ease: 'easeOut', duration: 1.2 }}
           >
             <StyledImageMain
               src={displayedInfo.picToDisplay}
@@ -116,10 +116,10 @@ export default function PlanetImage({ displayedInfo, planetName, planetId }) {
             />
             <StyledImageSecondary
               key={displayedInfo.additionalSurfacePic}
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              // exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 1.2 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ ease: 'easeOut', duration: 1.2 }}
               planetid={planetId}
               src={displayedInfo.additionalSurfacePic}
               alt={planetName + 'surface'}

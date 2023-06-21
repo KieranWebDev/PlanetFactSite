@@ -1,4 +1,4 @@
-import { breakPoints } from '../../breakPointAndImgSizes';
+import { breakPoints } from '../../Data/breakPointAndImgSizes';
 import styled from 'styled-components';
 
 const StyledContainer = styled.div`

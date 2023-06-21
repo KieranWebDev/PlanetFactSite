@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { breakPoints } from '../../breakPointAndImgSizes';
+import { breakPoints } from '../../Data/breakPointAndImgSizes';
 import { motion } from 'framer-motion';
 
 const StyledContainer = styled(motion.section)`
@@ -22,6 +22,7 @@ const StyledContainer = styled(motion.section)`
 const StyledStatInfo = styled.div`
   border: 1px solid rgba(255, 255, 255, 0.2);
   background-color: var(--background-color);
+  ${'' /* background: transparent; */}
   display: flex;
   justify-content: space-between;
   align-items: center;

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { breakPoints } from '../../breakPointAndImgSizes';
+import { breakPoints } from '../../Data/breakPointAndImgSizes';
 import styled from 'styled-components';
 // icons
 import HamburgerIcon from '../../assets/icon-hamburger.svg';
@@ -12,6 +12,7 @@ import DesktopMenuComponent from './DesktopMenuComponent';
 const Header = styled.div`
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   background-color: var(--background-color);
+  ${'' /* background: transparent; */}
   ${'' /* fixes navbar in place when mobile menu displays  */}
   position: ${(props) => (props.mobilemenu === 'true' ? 'fixed' : 'initial')};
   width: 100%;

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { breakPoints } from '../../breakPointAndImgSizes';
+import { breakPoints } from '../../Data/breakPointAndImgSizes';
 
 const StyledPlanetPageContainer = styled.main`
   max-width: 1100px;
