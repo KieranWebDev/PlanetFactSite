@@ -1,5 +1,5 @@
 // import './App.css';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 import styled from 'styled-components';
 //components
@@ -20,14 +20,15 @@ const ParticleContainer = styled.div`
   z-index: -1;
 `;
 
-const projecturl = 'https://zfrqdfdxakyrccertitp.supabase.co';
-const apiKey =
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpmcnFkZmR4YWt5cmNjZXJ0aXRwIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODY4NDExNDgsImV4cCI6MjAwMjQxNzE0OH0.gozzzkLRMI95d8_sUfF04Z2tXvDxqk4AbvvxMfHvSyg';
+const projecturl = import.meta.env.VITE_PROJECT_URL;
+const apiKey = import.meta.env.VITE_API_KEY;
 
 const supabase = createClient(projecturl, apiKey);
 
 function App() {
   const [allPlanetsData, setAllPlanetsData] = useState([]);
+  const [particleCount, setParticleCount] = useState(200);
+  const windowWidth = useRef(window.innerWidth);
 
   // fetch data from supabase
   useEffect(() => {
@@ -45,6 +46,36 @@ function App() {
     await loadFull(engine);
   }, []);
 
+  useEffect(() => {
+    // Adjust particle count based on window width
+    function handleResize() {
+      const width = window.innerWidth;
+      windowWidth.current = width;
+      if (width < 550) {
+        setParticleCount(100);
+      } else {
+        setParticleCount(200);
+      }
+    }
+
+    window.addEventListener('resize', handleResize); // Add event listener
+
+    return () => {
+      window.removeEventListener('resize', handleResize); // Clean up event listener
+    };
+  }, []);
+
+  const updatedParticleOptions = {
+    ...particleOptions,
+    particles: {
+      ...particleOptions.particles,
+      number: {
+        ...particleOptions.particles.number,
+        value: particleCount,
+      },
+    },
+  };
+
   // const particlesLoaded = useCallback(async () => {}, []);
 
   return (
@@ -54,7 +85,7 @@ function App() {
           id="tsparticles"
           init={particlesInit}
           // loaded={particlesLoaded}
-          options={particleOptions}
+          options={updatedParticleOptions}
         />
       </ParticleContainer>
       {allPlanetsData.length > 0 && (
