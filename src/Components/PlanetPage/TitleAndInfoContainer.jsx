@@ -90,9 +90,9 @@ export default function TitleAndInfoContainer({ planetName, displayedInfo }) {
       </StyledH1>
       <StyledP
         key={displayedInfo.planetDecriptionText}
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: -20 }}
+        initial={{ opacity: 0, x: +40 }}
+        animate={{ opacity: 1, x: 0 }}
+        exit={{ opacity: 0, x: +40 }}
         transition={{ ease: 'easeOut', duration: 1 }}
       >
         {displayedInfo.planetDecriptionText}

@@ -86,10 +86,10 @@ export default function PlanetImage({ displayedInfo, planetName, planetId }) {
       <StyledImageContainer
         planetid={planetId}
         key={displayedInfo.picToDisplay}
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: -20 }}
-        transition={{ ease: 'easeInOut', duration: 2 }}
+        initial={{ opacity: 0, x: 0 }}
+        animate={{ opacity: 1, x: 0 }}
+        exit={{ opacity: 0, y: 0 }}
+        transition={{ ease: 'easeInOut', duration: 1.2 }}
       >
         <StyledImageMain
           // key={displayedInfo.picToDisplay}
