@@ -20,6 +20,9 @@ const StyledContainer = styled.div`
     justify-content: flex-start;
     gap: 1em;
     border-bottom: none;
+    margin: 20px 0;
+  }
+  @media (min-width: ${breakPoints.lgDesktop}) {
   }
 `;
 
