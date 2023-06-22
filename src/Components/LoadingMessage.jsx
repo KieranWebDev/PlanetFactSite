@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import Loading from '../Assets/Loading.gif';
+import Loading from '../assets/Loading.gif';
 import { breakPoints } from '../Data/breakPointAndImgSizes';
 
 const StyledPositioningContainer = styled.div`
