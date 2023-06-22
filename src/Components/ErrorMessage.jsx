@@ -1,8 +1,16 @@
 import styled from 'styled-components';
-
+import { motion } from 'framer-motion';
 import { breakPoints } from '../Data/breakPointAndImgSizes';
 
-const StyledLoadingContainer = styled.div`
+const StyledPositioningContainer = styled.div`
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const StyledLoadingContainer = styled(motion.div)`
   max-height: 200px;
   max-width: 200px;
   display: flex;
@@ -30,18 +38,16 @@ const StyledLoadingContainer = styled.div`
     }
   }
 `;
-const StyledPositioningContainer = styled.div`
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
 
 export default function ErrorMessage() {
   return (
     <StyledPositioningContainer>
-      <StyledLoadingContainer>
+      <StyledLoadingContainer
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -20 }}
+        transition={{ ease: 'easeOut', duration: 1 }}
+      >
         <h3>Sorry, there was an error retrieving the data.</h3>
         <h3>Please refresh the page or try again later</h3>
       </StyledLoadingContainer>

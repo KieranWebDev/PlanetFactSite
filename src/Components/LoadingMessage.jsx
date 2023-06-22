@@ -1,8 +1,17 @@
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 import Loading from '../Assets/Loading.gif';
 import { breakPoints } from '../Data/breakPointAndImgSizes';
 
-const StyledLoadingContainer = styled.div`
+const StyledPositioningContainer = styled.div`
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const StyledLoadingContainer = styled(motion.div)`
   ${'' /* margin: auto; */}
   min-height: 200px;
   max-height: 200px;
@@ -35,18 +44,16 @@ const StyledLoadingContainer = styled.div`
     }
   }
 `;
-const StyledPositioningContainer = styled.div`
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
 
 export default function LoadingMessage() {
   return (
     <StyledPositioningContainer>
-      <StyledLoadingContainer>
+      <StyledLoadingContainer
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -20 }}
+        transition={{ ease: 'easeOut', duration: 1 }}
+      >
         <h1>Loading</h1>
         <img src={Loading} alt="loading animation" />
       </StyledLoadingContainer>

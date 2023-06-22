@@ -41,7 +41,7 @@ function App() {
 
   async function getPlanets() {
     try {
-      const { data, error } = await supabase.from('planet').select();
+      const { data, error } = await supabase.from('planets').select();
       if (error) {
         throw new Error(error.message);
       }
