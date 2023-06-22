@@ -61,7 +61,7 @@ const StyledLink = styled(motion.div)`
 
   a img {
     margin-left: 3px;
-    vertical-align: middle;
+    ${'' /* vertical-align: middle; */}
   }
 
   & a:hover {
