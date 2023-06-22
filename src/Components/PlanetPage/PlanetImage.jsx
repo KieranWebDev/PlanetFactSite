@@ -14,12 +14,21 @@ const StyledPlanetContainer = styled.section`
     min-height: 450px;
     max-height: 500px;
   }
+
   @media (min-width: ${breakPoints.desktop}) {
+    height: auto;
+    min-height: 350px;
+    max-height: 550px;
+    margin-top: 20px;
+    margin-bottom: 0;
+  }
+
+  @media (min-width: ${breakPoints.lgDesktop}) {
     height: auto;
     min-height: 600px;
     max-height: 800px;
     margin-top: 50px;
-    margin-bottom: 40px;
+    margin-bottom: 0;
   }
 `;
 
@@ -32,9 +41,18 @@ const StyledImageContainer = styled(motion.div)`
     max-height: ${(props) => imageSizes[props.planetid].tablet};
     max-width: ${(props) => imageSizes[props.planetid].tablet};
   }
+
   @media (min-width: ${breakPoints.desktop}) {
+    max-height: ${(props) =>
+      `calc(${imageSizes[props.planetid].desktop} - 100px)`};
+    max-width: ${(props) =>
+      `calc(${imageSizes[props.planetid].desktop} - 100px)`};
+  }
+  @media (min-width: ${breakPoints.lgDesktop}) {
     max-height: ${(props) => imageSizes[props.planetid].desktop};
     max-width: ${(props) => imageSizes[props.planetid].desktop};
+
+    ${'' /* max-width: ${(props) => imageSizes[props.planetid].desktop}; */}
   }
 `;
 
@@ -65,9 +83,9 @@ const StyledImageSecondary = styled.img`
 
     top: ${(props) => {
       if (props.planetid === 'jupiter') {
-        return '80%';
+        return '82%';
       } else if (props.planetid === 'saturn') {
-        return '75%';
+        return '72%';
       } else {
         return '90%';
       }

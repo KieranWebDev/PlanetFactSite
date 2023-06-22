@@ -16,6 +16,11 @@ const StyledContainer = styled(motion.section)`
   @media (min-width: ${breakPoints.desktop}) {
     padding: 0;
     gap: 1.5em;
+    ${'' /* margin-top: 30px; */}
+  }
+  @media (min-width: ${breakPoints.lgDesktop}) {
+    padding: 0;
+    gap: 1.5em;
   }
 `;
 

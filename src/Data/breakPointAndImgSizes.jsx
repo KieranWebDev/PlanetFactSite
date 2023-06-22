@@ -1,6 +1,8 @@
 export const breakPoints = {
   tablet: '650px',
   desktop: '1150px',
+  lgDesktop: '1600px',
+
   navDesktop: '950px',
 };
 
@@ -28,7 +30,7 @@ export const imageSizes = {
   jupiter: {
     mobile: '224px',
     tablet: '369px',
-    desktop: '582px',
+    desktop: '532px',
   },
   saturn: {
     mobile: '256px',

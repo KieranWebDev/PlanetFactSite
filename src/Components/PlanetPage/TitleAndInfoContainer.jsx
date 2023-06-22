@@ -16,10 +16,19 @@ const StyledContainer = styled.section`
     margin-bottom: 1.6em;
     ${'' /* padding-right: 1em; */}
   }
+
   @media (min-width: ${breakPoints.desktop}) {
-    margin-top: 100px;
+    margin-top: 30px;
     margin-bottom: 0;
     padding-left: 0;
+  }
+
+  @media (min-width: ${breakPoints.lgDesktop}) {
+    margin-top: 100px;
+    ${
+      '' /* margin-bottom: 0;
+    padding-left: 0; */
+    }
   }
 `;
 const StyledH1 = styled(motion.h1)`

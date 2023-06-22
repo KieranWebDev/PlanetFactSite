@@ -33,6 +33,7 @@ const StyledPlanetPageContainer = styled.main`
       'image image buttons'
       'statistics statistics statistics';
   }
+  align-items: center;
 `;
 
 export default function PlanetsPageContainer({ children }) {
