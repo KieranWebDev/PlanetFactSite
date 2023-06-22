@@ -5,6 +5,7 @@ import styled from 'styled-components';
 //components
 import Planets from './Pages/Planets';
 import PageLayout from './Components/PageLayout';
+import LoadingMessage from './Components/LoadingMessage';
 
 // superbase
 import { createClient } from '@supabase/supabase-js';
@@ -14,6 +15,7 @@ import { useCallback } from 'react';
 import Particles from 'react-particles';
 import { loadFull } from 'tsparticles';
 import particleOptions from './Data/particleOptions';
+import ErrorMessage from './Components/ErrorMessage';
 
 const ParticleContainer = styled.div`
   position: relative;
@@ -28,6 +30,8 @@ const supabase = createClient(projecturl, apiKey);
 function App() {
   const [allPlanetsData, setAllPlanetsData] = useState([]);
   const [particleCount, setParticleCount] = useState(200);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const windowWidth = useRef(window.innerWidth);
 
   // fetch data from supabase
@@ -36,9 +40,19 @@ function App() {
   }, []);
 
   async function getPlanets() {
-    const { data } = await supabase.from('planets').select();
-    setAllPlanetsData(data);
-    console.log('data fetched');
+    try {
+      const { data, error } = await supabase.from('planets').select();
+      if (error) {
+        throw new Error(error.message);
+      }
+      setAllPlanetsData(data);
+      setLoading(false);
+      console.log('data fetched');
+    } catch (error) {
+      setLoading(false);
+      setError(error.message);
+      console.error('Error fetching data:', error);
+    }
   }
 
   // particles
@@ -88,6 +102,9 @@ function App() {
           options={updatedParticleOptions}
         />
       </ParticleContainer>
+      {loading && <LoadingMessage />}
+      {error && <ErrorMessage />}
+
       {allPlanetsData.length > 0 && (
         <>
           <BrowserRouter>
