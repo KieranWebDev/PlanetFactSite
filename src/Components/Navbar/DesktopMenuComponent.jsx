@@ -19,16 +19,6 @@ const LiDesktop = styled.li`
   @media (min-width: ${breakPoints.tablet}) {
     ${'' /* border-top: 5px solid transparent; */}
     text-align: center;
-
-    ${
-      '' /* &:hover,
-    &:focus,
-    &:active {
-      border-top: 5px solid red;
-      border-top-color: ${(props) => `var(${props.linkcolor})`};
-      opacity: 1;
-    } */
-    }
   }
 
   @media (min-width: ${breakPoints.navDesktop}) {
@@ -148,29 +138,6 @@ export default function DesktopMenuComponent() {
           Neptune
         </StyledLink>
       </LiDesktop>
-
-      {/* 
-      <LiDesktop linkcolor={'--venus'}>
-        <StyledLink to="/venus">VENUS</StyledLink>
-      </LiDesktop>
-      <LiDesktop linkcolor={'--earth'}>
-        <StyledLink to="/earth">EARTH</StyledLink>
-      </LiDesktop>
-      <LiDesktop linkcolor={'--mars'}>
-        <StyledLink to="/mars">MARS</StyledLink>
-      </LiDesktop>
-      <LiDesktop linkcolor={'--jupiter'}>
-        <StyledLink to="/jupiter">JUPITER</StyledLink>
-      </LiDesktop>
-      <LiDesktop linkcolor={'--saturn'}>
-        <StyledLink to="/saturn">SATURN</StyledLink>
-      </LiDesktop>
-      <LiDesktop linkcolor={'--uranus'}>
-        <StyledLink to="/uranus">URANUS</StyledLink>
-      </LiDesktop>
-      <LiDesktop linkcolor={'--neptune'}>
-        <StyledLink to="/neptune">NEPTUNE</StyledLink>
-      </LiDesktop> */}
     </UlDesktop>
   );
 }
