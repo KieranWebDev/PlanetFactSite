@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-// import { breakPoints } from '../../breakPointAndImgSizes';
 //icon image
 import Chevron from '../../assets/icon-chevron.svg';
 
@@ -18,14 +17,15 @@ const MobileMenuContainer = styled.nav`
   padding-top: 30px;
 `;
 
-const UlMobile = styled.ul`
+const StyledUlMobile = styled.ul`
   width: 100%;
   display: flex;
   flex-direction: column;
-`;
-const LiMobile = styled.li`
-  list-style-type: none;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+  & li {
+    list-style-type: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
 `;
 
 const StyledLink = styled(Link)`
@@ -57,16 +57,16 @@ export default function MobileMenuComponent({
 }) {
   return (
     <MobileMenuContainer>
-      <UlMobile>
+      <StyledUlMobile>
         {planetsNavInfo.map((planet) => (
-          <LiMobile key={planet.id}>
-            <StyledLink onClick={toggleMobileMenu} to="/mercury">
+          <li key={planet.id}>
+            <StyledLink onClick={toggleMobileMenu} to={`/${planet.id}`}>
               <Circle circlecolor={planet.linkcolor}></Circle> {planet.name}
               <ChevronIcon src={Chevron} alt="arrow-icon" />
             </StyledLink>
-          </LiMobile>
+          </li>
         ))}
-      </UlMobile>
+      </StyledUlMobile>
     </MobileMenuContainer>
   );
 }

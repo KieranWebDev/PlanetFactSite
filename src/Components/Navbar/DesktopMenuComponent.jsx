@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { breakPoints } from '../../Data/breakPointAndImgSizes';
 
 // STYLES
-const UlDesktop = styled.ul`
+const StyledUlDesktop = styled.ul`
   display: none;
 
   @media (min-width: ${breakPoints.tablet}) {
@@ -57,7 +57,7 @@ export default function DesktopMenuComponent({ planetsNavInfo }) {
 
   console.log(planetsNavInfo);
   return (
-    <UlDesktop>
+    <StyledUlDesktop>
       {planetsNavInfo.map((planet) => (
         <li key={planet.id}>
           <StyledLink
@@ -69,6 +69,6 @@ export default function DesktopMenuComponent({ planetsNavInfo }) {
           </StyledLink>
         </li>
       ))}
-    </UlDesktop>
+    </StyledUlDesktop>
   );
 }
