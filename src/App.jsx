@@ -1,31 +1,32 @@
-// import './App.css';
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef, useCallback } from 'react';
+// react router
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
+// styled components
 import styled from 'styled-components';
+// superbase
+import supabase from './Services/superbase';
+// particles
+import Particles from 'react-particles';
+import { loadFull } from 'tsparticles';
+import particleOptions from './Data/particleOptions';
 //components
 import Planets from './Pages/Planets';
 import PageLayout from './Components/PageLayout';
 import LoadingMessage from './Components/LoadingMessage';
-
-// superbase
-import { createClient } from '@supabase/supabase-js';
-
-// particles
-import { useCallback } from 'react';
-import Particles from 'react-particles';
-import { loadFull } from 'tsparticles';
-import particleOptions from './Data/particleOptions';
 import ErrorMessage from './Components/ErrorMessage';
 
+// Styles
 const ParticleContainer = styled.div`
   position: relative;
   z-index: -1;
 `;
 
-const projecturl = import.meta.env.VITE_PROJECT_URL;
-const apiKey = import.meta.env.VITE_API_KEY;
+// env variables
+// const projecturl = import.meta.env.VITE_PROJECT_URL;
+// const apiKey = import.meta.env.VITE_API_KEY;
 
-const supabase = createClient(projecturl, apiKey);
+// supabase
+// const supabase = createClient(projecturl, apiKey);
 
 function App() {
   const [allPlanetsData, setAllPlanetsData] = useState([]);
@@ -47,7 +48,7 @@ function App() {
       }
       setAllPlanetsData(data);
       setLoading(false);
-      console.log('data fetched');
+      // console.log('data fetched');
     } catch (error) {
       setLoading(false);
       setError(error.message);
@@ -60,8 +61,8 @@ function App() {
     await loadFull(engine);
   }, []);
 
+  // Adjust particle count based on window width
   useEffect(() => {
-    // Adjust particle count based on window width
     function handleResize() {
       const width = window.innerWidth;
       windowWidth.current = width;
@@ -71,8 +72,7 @@ function App() {
         setParticleCount(200);
       }
     }
-
-    window.addEventListener('resize', handleResize); // Add event listener
+    window.addEventListener('resize', handleResize);
 
     return () => {
       window.removeEventListener('resize', handleResize); // Clean up event listener
@@ -90,15 +90,12 @@ function App() {
     },
   };
 
-  // const particlesLoaded = useCallback(async () => {}, []);
-
   return (
     <>
       <ParticleContainer>
         <Particles
           id="tsparticles"
           init={particlesInit}
-          // loaded={particlesLoaded}
           options={updatedParticleOptions}
         />
       </ParticleContainer>
