@@ -55,7 +55,6 @@ const StyledLink = styled(Link)`
 export default function DesktopMenuComponent({ planetsNavInfo }) {
   const location = useLocation();
 
-  console.log(planetsNavInfo);
   return (
     <StyledUlDesktop>
       {planetsNavInfo.map((planet) => (

@@ -14,7 +14,6 @@ const StyledContainer = styled.section`
     padding: 0;
     padding-left: 1.5em;
     margin-bottom: 1.6em;
-    ${'' /* padding-right: 1em; */}
   }
 
   @media (min-width: ${breakPoints.desktop}) {
@@ -25,10 +24,6 @@ const StyledContainer = styled.section`
 
   @media (min-width: ${breakPoints.lgDesktop}) {
     margin-top: 100px;
-    ${
-      '' /* margin-bottom: 0;
-    padding-left: 0; */
-    }
   }
 `;
 const StyledH1 = styled(motion.h1)`
@@ -47,7 +42,7 @@ const StyledH1 = styled(motion.h1)`
 const StyledTextAndLinkContainer = styled(motion.div)``;
 
 const StyledP = styled(motion.p)`
-  font-size: var(--font-size-sm);
+  ${'' /* font-size: var(--font-size-sm); */}
   font-size: 16px;
   line-height: var(--standard-line-height);
   font-weight: 300;
@@ -70,19 +65,12 @@ const StyledLink = styled(motion.div)`
 
   a img {
     margin-left: 3px;
-    ${'' /* vertical-align: middle; */}
   }
 
   & a:hover {
     color: white;
     text-decoration: underline;
     transition: all 0.2s ease-in-out;
-  }
-  ${
-    '' /* & a:hover img {
-    opacity:1
-    fill: white;
-  } */
   }
 `;
 
