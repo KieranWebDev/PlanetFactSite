@@ -13,16 +13,14 @@ const UlDesktop = styled.ul`
     list-style-type: none;
     gap: 1em;
   }
-`;
+  & li {
+    @media (min-width: ${breakPoints.tablet}) {
+      text-align: center;
+    }
 
-const LiDesktop = styled.li`
-  @media (min-width: ${breakPoints.tablet}) {
-    ${'' /* border-top: 5px solid transparent; */}
-    text-align: center;
-  }
-
-  @media (min-width: ${breakPoints.navDesktop}) {
-    min-width: 70px;
+    @media (min-width: ${breakPoints.navDesktop}) {
+      min-width: 70px;
+    }
   }
 `;
 
@@ -54,90 +52,23 @@ const StyledLink = styled(Link)`
   }
 `;
 
-export default function DesktopMenuComponent() {
+export default function DesktopMenuComponent({ planetsNavInfo }) {
   const location = useLocation();
 
+  console.log(planetsNavInfo);
   return (
     <UlDesktop>
-      <LiDesktop>
-        <StyledLink
-          to="/mercury"
-          linkcolor={'--mercury'}
-          className={location.pathname === '/mercury' ? 'active' : ''}
-        >
-          mercury
-        </StyledLink>
-      </LiDesktop>
-
-      <LiDesktop>
-        <StyledLink
-          to="/venus"
-          linkcolor={'--venus'}
-          className={location.pathname === '/venus' ? 'active' : ''}
-        >
-          Venus
-        </StyledLink>
-      </LiDesktop>
-
-      <LiDesktop>
-        <StyledLink
-          to="/earth"
-          linkcolor={'--earth'}
-          className={location.pathname === '/earth' ? 'active' : ''}
-        >
-          Earth
-        </StyledLink>
-      </LiDesktop>
-
-      <LiDesktop>
-        <StyledLink
-          to="/mars"
-          linkcolor={'--mars'}
-          className={location.pathname === '/mars' ? 'active' : ''}
-        >
-          Mars
-        </StyledLink>
-      </LiDesktop>
-
-      <LiDesktop>
-        <StyledLink
-          to="/jupiter"
-          linkcolor={'--jupiter'}
-          className={location.pathname === '/jupiter' ? 'active' : ''}
-        >
-          Jupiter
-        </StyledLink>
-      </LiDesktop>
-
-      <LiDesktop>
-        <StyledLink
-          to="/saturn"
-          linkcolor={'--saturn'}
-          className={location.pathname === '/saturn' ? 'active' : ''}
-        >
-          Saturn
-        </StyledLink>
-      </LiDesktop>
-
-      <LiDesktop>
-        <StyledLink
-          to="/uranus"
-          linkcolor={'--uranus'}
-          className={location.pathname === '/uranus' ? 'active' : ''}
-        >
-          Uranus
-        </StyledLink>
-      </LiDesktop>
-
-      <LiDesktop>
-        <StyledLink
-          to="/neptune"
-          linkcolor={'--neptune'}
-          className={location.pathname === '/neptune' ? 'active' : ''}
-        >
-          Neptune
-        </StyledLink>
-      </LiDesktop>
+      {planetsNavInfo.map((planet) => (
+        <li key={planet.id}>
+          <StyledLink
+            to={`/${planet.name}`}
+            linkcolor={planet.linkcolor}
+            className={location.pathname === `/${planet.id}` ? 'active' : ''}
+          >
+            {planet.name}
+          </StyledLink>
+        </li>
+      ))}
     </UlDesktop>
   );
 }

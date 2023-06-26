@@ -67,13 +67,19 @@ const StyledHeader = styled.div`
   }
 `;
 
-
-export default function Navbar() {
+export default function Navbar({ allPlanetsData }) {
   const [isMobileMenu, setIsMobileMenu] = useState(false);
 
   function toggleMobileMenu() {
     setIsMobileMenu((prev) => !prev);
   }
+  const planetsNavInfo = allPlanetsData.map((planet) => {
+    return {
+      id: planet.id,
+      name: planet.name.toLowerCase(),
+      linkcolor: `--${planet.name.toLowerCase()}`,
+    };
+  });
 
   return (
     <>
@@ -81,7 +87,7 @@ export default function Navbar() {
         <StyledHeader>
           <h2>THE PLANETS</h2>
           <nav>
-            <DesktopMenuComponent />
+            <DesktopMenuComponent planetsNavInfo={planetsNavInfo} />
             <button onClick={toggleMobileMenu}>
               <img src={HamburgerIcon} alt="hamburger icon" />
             </button>
@@ -89,7 +95,10 @@ export default function Navbar() {
         </StyledHeader>
       </StyledHeaderContainer>
       {isMobileMenu && (
-        <MobileMenuComponent toggleMobileMenu={toggleMobileMenu} />
+        <MobileMenuComponent
+          toggleMobileMenu={toggleMobileMenu}
+          planetsNavInfo={planetsNavInfo}
+        />
       )}
     </>
   );

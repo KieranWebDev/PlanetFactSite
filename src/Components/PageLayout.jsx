@@ -1,10 +1,10 @@
-import Navbar from './Navbar/NavbarComponent';
+import NavbarComponent from './Navbar/NavbarComponent';
 import { Outlet } from 'react-router-dom';
 
-export default function PageLayout() {
+export default function PageLayout({ allPlanetsData }) {
   return (
     <>
-      <Navbar />
+      <NavbarComponent allPlanetsData={allPlanetsData} />
       <Outlet />
     </>
   );

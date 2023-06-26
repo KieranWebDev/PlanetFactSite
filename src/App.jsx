@@ -43,7 +43,7 @@ function App() {
       {allPlanetsData.length > 0 && (
         <BrowserRouter>
           <Routes>
-            <Route element={<PageLayout />}>
+            <Route element={<PageLayout allPlanetsData={allPlanetsData} />}>
               <Route index element={<Navigate to="/earth" />} />
               <Route
                 path="/:id"
