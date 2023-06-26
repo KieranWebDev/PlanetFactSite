@@ -148,34 +148,3 @@ export default function PlanetImage({ displayedInfo, planetName, planetId }) {
     </>
   );
 }
-
-{
-  /* <StyledImageContainer
-        planetid={planetId}
-        key={displayedInfo.picToDisplay}
-        initial={{ opacity: 0, x: 0 }}
-        animate={{ opacity: 1, x: 0 }}
-        // exit={{ opacity: 0, y: 0 }}
-        transition={{ duration: 1.2 }}
-      >
-        <StyledImageMain src={displayedInfo.picToDisplay} alt={planetName} />
-        {displayedInfo.additionalSurfacePic && (
-          <StyledImageSecondary
-            key={displayedInfo.additionalSurfacePic}
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            // exit={{ opacity: 0, y: -20 }}
-            // transition={{ ease: 'easeOut', duration: 1 }}
-            planetid={planetId}
-            src={displayedInfo.additionalSurfacePic}
-            alt={planetName + 'surface'}
-          />
-        )}
-      </StyledImageContainer>
-    </StyledPlanetContainer>
-    </> */
-}
-{
-  /* );
-} */
-}

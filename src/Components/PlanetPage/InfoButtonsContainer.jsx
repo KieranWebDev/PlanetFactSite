@@ -133,7 +133,7 @@ const StyledLgScreenSpan = styled.span`
     display: inline;
   }
 `;
-const NumberSpan = styled.span`
+const StyledNumberSpan = styled.span`
   display: none;
 
   @media (min-width: ${breakPoints.tablet}) {
@@ -159,7 +159,7 @@ export default function InfoButtonsContainer({
       >
         <StyledSmallScreenSpan>overview</StyledSmallScreenSpan>
         <StyledLgScreenSpan>
-          <NumberSpan>01</NumberSpan>overview
+          <StyledNumberSpan>01</StyledNumberSpan>overview
         </StyledLgScreenSpan>
       </StyledButton>
 
@@ -173,7 +173,7 @@ export default function InfoButtonsContainer({
       >
         <StyledSmallScreenSpan>structure</StyledSmallScreenSpan>
         <StyledLgScreenSpan>
-          <NumberSpan>02</NumberSpan>internal structure
+          <StyledNumberSpan>02</StyledNumberSpan>internal structure
         </StyledLgScreenSpan>
       </StyledButton>
 
@@ -187,7 +187,7 @@ export default function InfoButtonsContainer({
       >
         <StyledSmallScreenSpan>surface</StyledSmallScreenSpan>
         <StyledLgScreenSpan>
-          <NumberSpan>03</NumberSpan>surface geology
+          <StyledNumberSpan>03</StyledNumberSpan>surface geology
         </StyledLgScreenSpan>
       </StyledButton>
     </StyledContainer>

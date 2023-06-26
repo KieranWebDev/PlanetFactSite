@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-// import { breakPoints } from '../../breakPointAndImgSizes';
 //icon image
 import Chevron from '../../assets/icon-chevron.svg';
 
@@ -18,14 +17,15 @@ const MobileMenuContainer = styled.nav`
   padding-top: 30px;
 `;
 
-const UlMobile = styled.ul`
+const StyledUlMobile = styled.ul`
   width: 100%;
   display: flex;
   flex-direction: column;
-`;
-const LiMobile = styled.li`
-  list-style-type: none;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+  & li {
+    list-style-type: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
 `;
 
 const StyledLink = styled(Link)`
@@ -51,59 +51,22 @@ const Circle = styled.div`
 const ChevronIcon = styled.img`
   margin-left: auto;
 `;
-export default function MobileMenuComponent(props) {
+export default function MobileMenuComponent({
+  toggleMobileMenu,
+  planetsNavInfo,
+}) {
   return (
     <MobileMenuContainer>
-      <UlMobile>
-        <LiMobile>
-          <StyledLink onClick={props.toggleMobileMenu} to="/mercury">
-            <Circle circlecolor={'--mercury'}></Circle> mercury
-            <ChevronIcon src={Chevron} alt="arrow-icon" />
-          </StyledLink>
-        </LiMobile>
-        <LiMobile>
-          <StyledLink onClick={props.toggleMobileMenu} to="/venus">
-            <Circle circlecolor={'--venus'}></Circle> venus
-            <ChevronIcon src={Chevron} alt="arrow-icon" />
-          </StyledLink>
-        </LiMobile>
-        <LiMobile>
-          <StyledLink onClick={props.toggleMobileMenu} to="/earth">
-            <Circle circlecolor={'--earth'}></Circle> earth
-            <ChevronIcon src={Chevron} alt="arrow-icon" />
-          </StyledLink>
-        </LiMobile>
-        <LiMobile>
-          <StyledLink onClick={props.toggleMobileMenu} to="/mars">
-            <Circle circlecolor={'--mars'}></Circle> mars
-            <ChevronIcon src={Chevron} alt="arrow-icon" />
-          </StyledLink>
-        </LiMobile>
-        <LiMobile>
-          <StyledLink onClick={props.toggleMobileMenu} to="/jupiter">
-            <Circle circlecolor={'--jupiter'}></Circle> jupiter
-            <ChevronIcon src={Chevron} alt="arrow-icon" />
-          </StyledLink>
-        </LiMobile>
-        <LiMobile>
-          <StyledLink onClick={props.toggleMobileMenu} to="/saturn">
-            <Circle circlecolor={'--saturn'}></Circle> saturn
-            <ChevronIcon src={Chevron} alt="arrow-icon" />
-          </StyledLink>
-        </LiMobile>
-        <LiMobile>
-          <StyledLink onClick={props.toggleMobileMenu} to="/uranus">
-            <Circle circlecolor={'--uranus'}></Circle> uranus
-            <ChevronIcon src={Chevron} alt="arrow-icon" />
-          </StyledLink>
-        </LiMobile>
-        <LiMobile>
-          <StyledLink onClick={props.toggleMobileMenu} to="/neptune">
-            <Circle circlecolor={'--neptune'}></Circle> neptune
-            <ChevronIcon src={Chevron} alt="arrow-icon" />
-          </StyledLink>
-        </LiMobile>
-      </UlMobile>
+      <StyledUlMobile>
+        {planetsNavInfo.map((planet) => (
+          <li key={planet.id}>
+            <StyledLink onClick={toggleMobileMenu} to={`/${planet.id}`}>
+              <Circle circlecolor={planet.linkcolor}></Circle> {planet.name}
+              <ChevronIcon src={Chevron} alt="arrow-icon" />
+            </StyledLink>
+          </li>
+        ))}
+      </StyledUlMobile>
     </MobileMenuContainer>
   );
 }

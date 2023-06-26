@@ -1,3 +1,4 @@
+/* CSS VARIABLES */
 :root {
   /* fonts */
   --text-font: 'League Spartan', sans-serif;
@@ -28,6 +29,7 @@
   --small-letter-spacing: -1px;
   --lg-letter-spacing: 2.6px;
 }
+/* CSS RESETS */
 html {
   box-sizing: border-box;
 }
@@ -38,6 +40,7 @@ html {
   margin: 0;
   padding: 0;
 }
+/* General */
 body {
   font-family: var(--text-font);
   background: url('./assets/background-stars.svg');
@@ -55,4 +58,3 @@ h5,
 h6 {
   font-family: var(--title-font);
 }
-/* design system */

@@ -94,10 +94,6 @@ export default function StatisticsContainer({ planetInfo, planetId }) {
         <span>Average temp</span>
         <span>{planetInfo.temperature}</span>
       </StyledStatInfo>
-
-      {/* <StyledStatInfo>radius- {planetInfo.radius}</StyledStatInfo>
-      <StyledStatInfo>revolution- {planetInfo.revolution}</StyledStatInfo>
-      <StyledStatInfo>temp- {planetInfo.temperature}</StyledStatInfo> */}
     </StyledContainer>
   );
 }

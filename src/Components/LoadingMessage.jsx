@@ -12,10 +12,7 @@ const StyledPositioningContainer = styled.div`
 `;
 
 const StyledLoadingContainer = styled(motion.div)`
-  ${'' /* margin: auto; */}
-  min-height: 200px;
   max-height: 200px;
-  min-width: 200px;
   max-width: 200px;
   display: flex;
   justify-content: center;
@@ -33,9 +30,7 @@ const StyledLoadingContainer = styled(motion.div)`
   }
 
   @media (min-width: ${breakPoints.tablet}) {
-    min-height: 300px;
     max-height: 500px;
-    min-width: 300px;
     max-width: 500px;
 
     & img {
