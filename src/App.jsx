@@ -1,7 +1,5 @@
 import { useEffect, useState } from 'react';
-// react router
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
-// superbase
 import supabase from './Services/superbase';
 //components
 import Planets from './Pages/Planets';
@@ -43,19 +41,17 @@ function App() {
       {error && <ErrorMessage />}
 
       {allPlanetsData.length > 0 && (
-        <>
-          <BrowserRouter>
-            <Routes>
-              <Route element={<PageLayout />}>
-                <Route index element={<Navigate to="/earth" />} />
-                <Route
-                  path="/:id"
-                  element={<Planets allPlanetsData={allPlanetsData} />}
-                />
-              </Route>
-            </Routes>
-          </BrowserRouter>
-        </>
+        <BrowserRouter>
+          <Routes>
+            <Route element={<PageLayout />}>
+              <Route index element={<Navigate to="/earth" />} />
+              <Route
+                path="/:id"
+                element={<Planets allPlanetsData={allPlanetsData} />}
+              />
+            </Route>
+          </Routes>
+        </BrowserRouter>
       )}
     </>
   );
