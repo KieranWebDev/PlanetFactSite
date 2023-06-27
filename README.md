@@ -1,6 +1,6 @@
 <h1 align='center'>The Planets</h1>
 
-## Link
+
 
 <h2 align="center">You can view the live site <a href="https://kieran-gill-planet-fact-site.vercel.app/">here.</a></h2>
 
@@ -17,7 +17,7 @@ Frontend Mentor.io provided the Figma design file for this project. All of the c
 ## Table of contents
 
 - [Overview](#overview)
-- [Screenshot](#screenshot)
+- [Screenshot](#screenshots)
 - [Link](#link)
 - [My process](#my-process)
   - [Built with](#built-with)
@@ -49,7 +49,23 @@ Frontend Mentor.io provided the Figma design file for this project. All of the c
   </tr>
 </table>
 
+## Link
+### You can view the live site [here](https://kieran-gill-planet-fact-site.vercel.app/)
 ## My Process
+
+### built with
+
+- React
+- React Router
+- Styled Components
+- Framer Motion
+- Vite
+- Particlesjs
+- Superbase
+- Cloudinary
+- Miragejs
+
+### Development and Learning
 
 - My intention for this project was to challenge myself and make a multipage site, utilizing new tools alongside familiar ones.
 
@@ -68,18 +84,6 @@ Frontend Mentor.io provided the Figma design file for this project. All of the c
 - I also added a particle effect background using particlesjs. This was more difficult as I found the docs fairly confusing. I consulted with my new best friend ChatGPT and was able to breakdown and debug my code successfully.
 
 - After completing the first iteration of my project, I wanted to refine the code and make it as DRY as possible. I used ChatGPT as a tool for this. Although some may view it as a controversial tool, I felt I learned a lot through this process. I fed it each component in turn and asked for a code review and acted upon the solutions that were useful; asking for further clarification in the process and thus learning more. Through its suggestions, I split some of the components down into smaller more efficient and reusable components. Additionally, I organized my environment variables and Superbase configurations into dedicated folders, such as "Config" and "Services.”
-
-### built with
-
-- React
-- React Router
-- Styled Components
-- Framer Motion
-- Vite
-- Particlesjs
-- Superbase
-- Cloudinary
-- Miragejs
 
 ### Useful resources
 
