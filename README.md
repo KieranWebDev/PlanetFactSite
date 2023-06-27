@@ -69,6 +69,10 @@ Frontend Mentor.io provided the Figma design file for this project. All of the c
 
 - My intention for this project was to challenge myself and make a multipage site, utilizing new tools alongside familiar ones.
 
+- Throughout the project, I used a Trello board to create tickets and replicate a real-life workflow. This helped me stay organized and maintain a clear overview of the tasks at hand. By breaking down the project into smaller tickets, I was able to track progress and ensure a structured development process.
+
+- To simulate a real-life project environment, I implemented multiple branches, including a development branch. This branching strategy allowed me to work on features and fixes separately, ensuring a cleaner and more controlled codebase. By isolating changes in different branches, I could easily merge them into the main codebase when ready.
+  
 - I used Styled Components for the first time and found it pretty easy to pick up and much cleaner than having a separate CSS file for each component. The Dynamic Styling features available were very handy and the scoping of styles helped to avoid a lot of headaches due to CSS clashing.
 
 - Browser Router was an essential tool for this project and v6 is very user-friendly. I intend to use more of its features in my next project as I feel I was just scratching the surface of what I can do with it in this project.
@@ -81,7 +85,7 @@ Frontend Mentor.io provided the Figma design file for this project. All of the c
 
 - Although beyond the scope of my original intentions, I decided to experiment with adding animations. After experimenting with using plain CSS for animations I opted for the Framer Motion library. The docs are fairly easy to navigate and I was able to implement this without many roadblocks as my animations are pretty simple. Simple Transitions on hover and click effects are still handled with plain CSS
 
-- I also added a particle effect background using particlesjs. This was more difficult as I found the docs fairly confusing. I consulted with my new best friend ChatGPT and was able to breakdown and debug my code successfully.
+- I also added a particle effect background using particlesjs. This was more difficult as I found the docs fairly confusing. I consulted with my new best friend frenemy ChatGPT and was able to breakdown and debug my code successfully.
 
 - After completing the first iteration of my project, I wanted to refine the code and make it as DRY as possible. I used ChatGPT as a tool for this. Although some may view it as a controversial tool, I felt I learned a lot through this process. I fed it each component in turn and asked for a code review and acted upon the solutions that were useful; asking for further clarification in the process and thus learning more. Through its suggestions, I split some of the components down into smaller more efficient and reusable components. Additionally, I organized my environment variables and Superbase configurations into dedicated folders, such as "Config" and "Services.”
 
