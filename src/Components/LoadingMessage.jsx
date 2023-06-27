@@ -13,7 +13,7 @@ const StyledPositioningContainer = styled.div`
 
 const StyledLoadingContainer = styled(motion.div)`
   max-height: 200px;
-  max-width: 200px;
+  width: 200px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -23,6 +23,7 @@ const StyledLoadingContainer = styled(motion.div)`
   border: 2px solid rgba(255, 255, 255, 0.8);
   border-radius: 10px;
   flex-direction: column;
+  padding: 1em;
 
   & img {
     width: 80%;
@@ -31,7 +32,7 @@ const StyledLoadingContainer = styled(motion.div)`
 
   @media (min-width: ${breakPoints.tablet}) {
     max-height: 500px;
-    max-width: 500px;
+    width: 250px;
 
     & img {
       width: 100%;
