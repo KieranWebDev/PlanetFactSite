@@ -1,6 +1,4 @@
-<h1 align='center'>The Planets</h1>
-
-
+<h1 align='center'>🌎 The Planets 🌎</h1>
 
 <h2 align="center">You can view the live site <a href="https://kieran-gill-planet-fact-site.vercel.app/">here.</a></h2>
 
