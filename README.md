@@ -51,7 +51,7 @@ During the development process, Miragejs was employed to simulate a server befor
 ### You can view the live site [here](https://kieran-gill-planet-fact-site.vercel.app/)
 ## My Process
 
-### built with
+### Built with:
 
 - React
 - React Router
@@ -79,11 +79,11 @@ During the development process, Miragejs was employed to simulate a server befor
 
 - I hosted the images using Cloudinary, which again has an easy enough to follow UI.
 
-- Before building the back end, I used Miragejs to replicate a server enabling for more efficient frontend development and iteration
+- Before building the back end, I used Miragejs to replicate a server, enabling for more efficient frontend development and iteration
 
-- Although beyond the scope of my original intentions, I decided to experiment with adding animations. After experimenting with using plain CSS for animations I opted for the Framer Motion library. The docs are fairly easy to navigate and I was able to implement this without many roadblocks as my animations are pretty simple. Simple Transitions on hover and click effects are still handled with plain CSS
+- Although beyond the scope of my original intentions, I decided to experiment with adding animations. After experimenting with using plain CSS for animations I opted for the Framer Motion library. The docs are fairly easy to navigate and I was able to implement this without many roadblocks as my animations are pretty simple. Simple transitions on hover and click effects are still handled with plain CSS
 
-- I also added a particle effect background using particlesjs. This was more difficult as I found the docs fairly confusing. I consulted with my new best friend frenemy ChatGPT and was able to breakdown and debug my code successfully.
+- I also added a particle effect background using particlesjs. This was more difficult as I found the docs fairly confusing. I consulted with my new best frenemy ChatGPT and was able to break down and debug my code successfully.
 
 - After completing the first iteration of my project, I wanted to refine the code and make it as DRY as possible. I used ChatGPT as a tool for this. Although some may view it as a controversial tool, I felt I learned a lot through this process. I fed it each component in turn and asked for a code review and acted upon the solutions that were useful; asking for further clarification in the process and thus learning more. Through its suggestions, I split some of the components down into smaller more efficient and reusable components. Additionally, I organized my environment variables and Superbase configurations into dedicated folders, such as "Config" and "Services.”
 
