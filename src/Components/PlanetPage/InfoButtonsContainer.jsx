@@ -44,6 +44,10 @@ const StyledButton = styled.button`
       props.infocategory === 'overview'
         ? `var(--${props.buttonbordercolor})`
         : 'none'};
+    color: ${(props) =>
+      props.infocategory === 'overview'
+        ? `var(--font-color)`
+        : 'rgba(255, 255, 255, 0.5)'};
   }
 
   &.structure {
@@ -51,6 +55,10 @@ const StyledButton = styled.button`
       props.infocategory === 'structure'
         ? `var(--${props.buttonbordercolor})`
         : 'none'};
+    color: ${(props) =>
+      props.infocategory === 'structure'
+        ? `var(--font-color)`
+        : 'rgba(255, 255, 255, 0.5)'};
   }
 
   &.geology {
@@ -58,6 +66,10 @@ const StyledButton = styled.button`
       props.infocategory === 'geology'
         ? `var(--${props.buttonbordercolor})`
         : 'none'};
+    color: ${(props) =>
+      props.infocategory === 'geology'
+        ? `var(--font-color)`
+        : 'rgba(255, 255, 255, 0.5)'};
   }
 
   @media (min-width: ${breakPoints.tablet}) {
@@ -70,6 +82,11 @@ const StyledButton = styled.button`
 
     &:hover {
       transition: all 0.25s ease-in-out;
+    }
+    &.overview,
+    &.structure,
+    &.geology {
+      color: var(--font-color);
     }
 
     &.overview {

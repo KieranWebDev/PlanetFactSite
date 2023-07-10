@@ -28,7 +28,7 @@ const StyledLink = styled(Link)`
   @media (min-width: ${breakPoints.tablet}) {
     text-transform: uppercase;
     border-top: 5px solid transparent;
-    padding: 2em 0;
+    padding: 1em 0;
     text-decoration: none;
     display: block;
     color: inherit;
@@ -48,6 +48,9 @@ const StyledLink = styled(Link)`
     &.active {
       border-top-color: ${(props) => `var(${props.linkcolor})`};
       opacity: 1;
+    }
+    @media (min-width: ${breakPoints.desktop}) {
+      padding: 2em 0;
     }
   }
 `;
