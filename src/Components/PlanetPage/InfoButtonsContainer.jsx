@@ -2,7 +2,7 @@ import { breakPoints } from '../../Data/breakPointAndImgSizes';
 import styled from 'styled-components';
 
 const StyledContainer = styled.div`
-  grid-area: buttons;
+  ${'' /* grid-area: buttons; */}
   display: flex;
   justify-content: space-around;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
@@ -21,8 +21,6 @@ const StyledContainer = styled.div`
     gap: 1em;
     border-bottom: none;
     margin: 20px 0;
-  }
-  @media (min-width: ${breakPoints.lgDesktop}) {
   }
 `;
 

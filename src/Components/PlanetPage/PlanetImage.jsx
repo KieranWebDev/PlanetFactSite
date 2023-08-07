@@ -51,8 +51,6 @@ const StyledImageContainer = styled(motion.div)`
   @media (min-width: ${breakPoints.lgDesktop}) {
     max-height: ${(props) => imageSizes[props.planetid].desktop};
     max-width: ${(props) => imageSizes[props.planetid].desktop};
-
-    ${'' /* max-width: ${(props) => imageSizes[props.planetid].desktop}; */}
   }
 `;
 
