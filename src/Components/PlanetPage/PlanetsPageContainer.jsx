@@ -37,15 +37,5 @@ const StyledPlanetPageContainer = styled.main`
 `;
 
 export default function PlanetsPageContainer({ children }) {
-  return (
-    <StyledPlanetPageContainer
-    // key="yo"
-    // initial={{ opacity: 0, y: -20 }}
-    // animate={{ opacity: 1, y: 0 }}
-    // exit={{ opacity: 0, y: -20 }}
-    // transition={{ ease: 'easeOut', duration: 3 }}
-    >
-      {children}
-    </StyledPlanetPageContainer>
-  );
+  return <StyledPlanetPageContainer>{children}</StyledPlanetPageContainer>;
 }
